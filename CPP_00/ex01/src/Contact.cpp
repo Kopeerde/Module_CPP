@@ -11,15 +11,15 @@ void Contact::set_contact()
 	std::string secret;
 
 	std::cout << "Enter the first name of the contact : " << std::endl;
-	std::cin >> first_name;
+	std::cin >> this->first_name;
 	std::cout << "Enter the last name of the contact : " << std::endl;
-	std::cin >> last_name;
+	std::cin >> this->last_name;
 	std::cout << "Enter the nickname of the contact : " << std::endl;
-	std::cin >> nickname;
+	std::cin >> this->nickname;
 	std::cout << "Enter the phone number of the contact : " << std::endl;
-	std::cin >> phone_number;
+	std::cin >> this->phone_number;
 	std::cout << "Enter the secret of the contact : " << std::endl;
-	std::cin >> secret;
+	std::cin >> this->secret;
 
 //	phonebook->set_contact(*(new Contact(first_name, last_name, nickname, phone_number, secret)));
 
