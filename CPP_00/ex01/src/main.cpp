@@ -23,7 +23,7 @@ int main()
 		std::cin >> input;
 		if (input.compare("ADD") == 0)
 		{
-			phonebook.set_contact(i);
+			phonebook.add_contact(i);
 			if (i == 7)
 				i = 0;
 			else
@@ -31,7 +31,7 @@ int main()
 		}
 		else if (input.compare("SEARCH") == 0)
 		{
-
+			phonebook.show_contacts();
 		}
 		else if (input.compare("EXIT") == 0)
 			break ;
