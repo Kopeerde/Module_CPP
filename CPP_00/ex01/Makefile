@@ -1,12 +1,11 @@
-NAME=
-CPP=c++
-FLAGS= -Wall -Wextra -Werror -std=c++98
+NAME = phonebook
+CPP = clang++
+FLAGS = -Wall -Wextra -Werror -std=c++98 -gdwarf-4
 
 $(NAME):
+	clang++ $(FLAGS) ./headers/Contact.hpp ./headers/PhoneBook.hpp ./src/Contact.cpp ./src/PhoneBook.cpp ./src/main.cpp
 
-
-all:
-	$(CPP)
+all: $(NAME)
 
 clean:
 	rm -rf *.o

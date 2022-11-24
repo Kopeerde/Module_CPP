@@ -1,5 +1,6 @@
 #include "../headers/PhoneBook.hpp"
 #include <iostream>
+#include <limits>
 
 void greeter()
 {
@@ -19,7 +20,7 @@ int main()
 	greeter();
 	while (true)
 	{
-		std::cout << "Enter a command : " << std::flush;
+		std::cout << "Enter a command : " << std::flush; // std::flush to remove the buffer for the incoming input
 		std::cin >> input;
 		if (input.compare("ADD") == 0)
 		{
@@ -32,11 +33,23 @@ int main()
 		else if (input.compare("SEARCH") == 0)
 		{
 			phonebook.show_contacts();
+			std::cout << "" << std::flush;
+			std::cin >> input;
+			if (i == 0)
+				input = "0";
+			phonebook.show_single_contact(input);
 		}
 		else if (input.compare("EXIT") == 0)
 			break ;
-		else
+		else // fallback if input isn't a valid command
+		{
 			std::cout << "Please, enter a valid command : ADD / SEARCH / EXIT" << std::endl;
+			if (std::cin.eof())
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+			}
+		}
 	}
 	return 0;
 }

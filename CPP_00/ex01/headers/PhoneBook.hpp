@@ -16,6 +16,7 @@ class PhoneBook
 		void add_contact(int index);
 		void get_contact();
 		void show_contacts();
+		void show_single_contact(std::string index);
 };
 
 #endif //CPP_00_PHONEBOOK_H
