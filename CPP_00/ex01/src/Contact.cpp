@@ -19,16 +19,39 @@ Contact::Contact()
  */
 void Contact::set_contact()
 {
-	std::cout << "Enter the first name of the contact : " << std::endl;
+	std::cout << "Enter the first name of the contact : " << std::endl << std::flush;
+	ask_input();
 	std::cin >> this->first_name;
-	std::cout << "Enter the last name of the contact : " << std::endl;
+	std::cout << "Enter the last name of the contact : " << std::endl << std::flush;
+	ask_input();
 	std::cin >> this->last_name;
-	std::cout << "Enter the nickname of the contact : " << std::endl;
+	std::cout << "Enter the nickname of the contact : " << std::endl << std::flush;
+	ask_input();
 	std::cin >> this->nickname;
-	std::cout << "Enter the phone number of the contact : " << std::endl;
-	std::cin >> this->phone_number;
-	std::cout << "Enter the secret of the contact : " << std::endl;
-	std::cin >> this->secret;
+	std::cout << "Enter the phone number of the contact : " << std::endl << std::flush;
+	while (true)
+	{
+		ask_input();
+		getline(std::cin, this->phone_number);
+		if (!is_num(this->phone_number) && !this->phone_number.empty())
+			continue;
+		break;
+	}
+	std::cout << "Enter the secret of the contact : " << std::endl << std::flush;
+	getline(std::cin, this->secret);
+}
+
+void Contact::ask_input() const
+{
+	std::string buffer = "";
+
+	while (true)
+	{
+		getline(std::cin, buffer);
+		if (buffer == "\n")
+			continue;
+		break;
+	}
 }
 
 /**
@@ -37,9 +60,7 @@ void Contact::set_contact()
  * @return The first name of the contact.
  */
 std::string Contact::get_first_name()
-{
-	return this->first_name;
-}
+{ return this->first_name; }
 
 /**
  * This function returns the last name of the contact.
@@ -47,9 +68,7 @@ std::string Contact::get_first_name()
  * @return The last name of the contact.
  */
 std::string Contact::get_last_name()
-{
-	return this->last_name;
-}
+{ return this->last_name; }
 
 /**
  * This function returns the nickname of the contact.
@@ -57,6 +76,20 @@ std::string Contact::get_last_name()
  * @return The nickname of the contact.
  */
 std::string Contact::get_nickname()
-{
-	return this->nickname;
-}
+{ return this->nickname; }
+
+/**
+ * This function returns the phone number of the contact.
+ *
+ * @return The phone number of the contact.
+ */
+std::string Contact::get_phone_number()
+{ return this->phone_number; }
+
+/**
+ * This function returns the secret of the contact.
+ *
+ * @return The secret string.
+ */
+std::string Contact::get_secret()
+{ return this->secret; }

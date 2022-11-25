@@ -2,6 +2,26 @@
 #include <iostream>
 #include <limits>
 
+/**
+ * It returns true if the string contains only digits, and false otherwise
+ *
+ * @param str The string to check.
+ *
+ * @return A boolean value.
+ */
+bool is_num(std::string const str)
+{
+	for (int i = 0; str[i]; i++)
+	{
+		if (!std::isdigit(str[i]))
+			return false;
+	}
+	return true;
+}
+
+/**
+ * It prints a greeting to the console
+ */
 void greeter()
 {
 	std::cout << " _____ _               _____         _" << std::endl;
@@ -16,7 +36,7 @@ int main()
 	int i;
 	PhoneBook phonebook;
 
-	i = 0;
+	i = -1;
 	greeter();
 	while (true)
 	{
@@ -24,20 +44,19 @@ int main()
 		std::cin >> input;
 		if (input.compare("ADD") == 0)
 		{
-			phonebook.add_contact(i);
 			if (i == 7)
 				i = 0;
 			else
 				i++;
+			phonebook.add_contact(i);
 		}
 		else if (input.compare("SEARCH") == 0)
 		{
 			phonebook.show_contacts();
-			std::cout << "" << std::flush;
-			std::cin >> input;
-			if (i == 0)
-				input = "0";
-			phonebook.show_single_contact(input);
+			if (i == -1) // Case where no contact has been added yet
+				phonebook.get_contact("-1");
+			else // Case where at least one contact has been created
+				phonebook.get_contact(input);
 		}
 		else if (input.compare("EXIT") == 0)
 			break ;
