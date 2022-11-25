@@ -20,35 +20,29 @@ Contact::Contact()
 void Contact::set_contact()
 {
 	std::cout << "Enter the first name of the contact : " << std::endl << std::flush;
-	ask_input();
-	std::cin >> this->first_name;
+	ask_input(&this->first_name);
 	std::cout << "Enter the last name of the contact : " << std::endl << std::flush;
-	ask_input();
-	std::cin >> this->last_name;
+	ask_input(&this->last_name);
 	std::cout << "Enter the nickname of the contact : " << std::endl << std::flush;
-	ask_input();
-	std::cin >> this->nickname;
+	ask_input(&this->nickname);
 	std::cout << "Enter the phone number of the contact : " << std::endl << std::flush;
 	while (true)
 	{
-		ask_input();
-		getline(std::cin, this->phone_number);
+		ask_input(&this->phone_number);
 		if (!is_num(this->phone_number) && !this->phone_number.empty())
 			continue;
 		break;
 	}
 	std::cout << "Enter the secret of the contact : " << std::endl << std::flush;
-	getline(std::cin, this->secret);
+	ask_input(&this->secret);
 }
 
-void Contact::ask_input() const
+void Contact::ask_input(std::string *field)
 {
-	std::string buffer = "";
-
 	while (true)
 	{
-		getline(std::cin, buffer);
-		if (buffer == "\n")
+		std::cin >> *field;
+		if (*field == "\n")
 			continue;
 		break;
 	}

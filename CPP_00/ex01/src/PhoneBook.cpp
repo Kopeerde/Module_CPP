@@ -79,7 +79,7 @@ void PhoneBook::get_contact(std::string index)
 	{
 		int i;
 
-		std::cout << "Input the index of the contact you want to look :" << std::endl << std::flush;
+		std::cout << "Input the index of the contact you want to look :" << std::endl;
 		std::cin >> index;
 		if (is_num(index))
 			i = std::atoi(index.c_str());

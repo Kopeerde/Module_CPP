@@ -21,7 +21,7 @@ class Contact
 		std::string get_phone_number();
 		std::string get_secret();
 
-		void ask_input() const;
+		void ask_input(std::string *field);
 };
 
 #endif //CPP_00_CONTACT_H
