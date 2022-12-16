@@ -1,10 +1,10 @@
 
 #include "../headers/HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon)
+HumanA::HumanA(std::string name, Weapon &weapon) : weapon(weapon)
 {
 	this->name = name;
-	this->weapon.setType(weapon);
+	this->weapon = weapon;
 }
 
 HumanA::~HumanA()

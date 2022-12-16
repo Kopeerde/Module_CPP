@@ -14,9 +14,11 @@ class HumanB
 	private:
 		std::string name;
 		Weapon *weapon;
-	public:
-		HumanB(std::string name, Weapon *weapon);
+
+public:
+		HumanB(std::string name, Weapon *weapon = NULL);
 		~HumanB();
+		void setWeapon(Weapon &weapon); // Transmission par reference car la position de la memoire de la variable et du parametre sont la meme
 		void attack();
 };
 

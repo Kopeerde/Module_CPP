@@ -1,9 +1,9 @@
 
 #include "../headers/Weapon.hpp"
 
-Weapon::Weapon()
+Weapon::Weapon(std::string str)
 {
-	this->type = "";
+	this->type = str;
 }
 
 Weapon::~Weapon()
