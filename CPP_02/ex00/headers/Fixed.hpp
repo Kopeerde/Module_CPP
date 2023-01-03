@@ -2,13 +2,15 @@
 #ifndef MODULE_CPP_FIXED_HPP
 #define MODULE_CPP_FIXED_HPP
 
+#define NB_VAL_MANT 8
+
 #include <iostream>
 
 class Fixed
 {
 	private:
 		int exposant;
-		int mantisse[8]; // TODO : int static const selon le sujet??
+		int static const mantisse[NB_VAL_MANT];
 
 	public:
 		Fixed();
