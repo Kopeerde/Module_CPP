@@ -1,13 +1,24 @@
 
 #include "../headers/sed.hpp"
 
-void line_checker(std::string *line, char *search, char *replace)
+void line_shift(std::string *line, char *search, int index)
 {
-	int i = 0;
-	int j;
 	int len_search = strlen(search);
 
-	while ((*line)[i])
+	for (int i = index; (*line)[i]; i++)
+	{
+		if ((i + len_search) > (int) line->size())
+			(*line)[i] = '\0';
+		else
+			(*line)[i] = (*line)[i + len_search];
+	}
+}
+
+void line_checker(std::string *line, char *search, char *replace)
+{
+	int j;
+
+	for (int i = 0; (*line)[i]; i++)
 	{
 		j = 0;
 		if ((*line)[i] == search[0])
@@ -18,11 +29,11 @@ void line_checker(std::string *line, char *search, char *replace)
 				if (search[j] == '\0')
 				{
 					line->insert(i, replace);
-					i += strlen(search) - 1;
+					i += strlen(replace);
+					line_shift(line, search, i);
 				}
 			}
 		}
-		i++;
 	}
 }
 
