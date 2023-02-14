@@ -12,8 +12,6 @@ int main(int argc, char **argv)
 		{
 			for (int j = 0; argv[i][j]; j++)
 				buffer += toupper(argv[i][j]);
-			if (i != argc - 1)
-				buffer +=" ";
 		}
 		std::cout << buffer << std::endl;
 	}

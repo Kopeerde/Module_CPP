@@ -8,6 +8,10 @@ int main()
 		randomChump("test2"); // Creer au pif un zombie et le detruit instant
 	}
 	{
+		Zombie *new_zomb = newZombie("new_zomb");
+		delete new_zomb;
+	}
+	{
 		Zombie *test2 = new Zombie("test3"); // Cree un zombie dans la heap
 		delete test2;
 	}

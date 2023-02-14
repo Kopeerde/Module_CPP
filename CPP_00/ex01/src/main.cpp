@@ -1,6 +1,6 @@
+
 #include "../headers/PhoneBook.hpp"
-#include <iostream>
-#include <limits>
+#include "../headers/utils.hpp"
 
 /**
  * It returns true if the string contains only digits, and false otherwise
@@ -41,7 +41,11 @@ int main()
 	while (true)
 	{
 		std::cout << "Enter a command : " << std::flush; // std::flush to remove the buffer for the incoming input
-		std::cin >> input;
+		std::getline(std::cin >> std::ws, input);
+		if (std::cin.eof())
+		{
+			input = "EXIT";
+		}
 		if (input.compare("ADD") == 0)
 		{
 			if (i == 7)

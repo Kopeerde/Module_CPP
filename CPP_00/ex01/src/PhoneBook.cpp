@@ -14,7 +14,7 @@ static std::string show_cell(std::string str)
 {
 	std::string res = "";
 
-	if (str.length() < 10)
+	if (str.length() <= 10)
 	{
 		int len_spaces = 10 - str.length();
 		res += std::string(len_spaces, ' ');
@@ -80,7 +80,7 @@ void PhoneBook::get_contact(std::string index)
 		int i;
 
 		std::cout << "Input the index of the contact you want to look :" << std::endl;
-		std::cin >> index;
+		std::getline(std::cin >> std::ws, index);
 		if (is_num(index))
 			i = std::atoi(index.c_str());
 		else

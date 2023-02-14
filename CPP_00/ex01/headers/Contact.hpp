@@ -1,6 +1,6 @@
 #ifndef CPP_00_CONTACT_H
 #define CPP_00_CONTACT_H
-#include <string>
+#include "./utils.hpp"
 
 class Contact
 {

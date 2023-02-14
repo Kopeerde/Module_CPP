@@ -3,14 +3,14 @@
 #      DEFINE SRCS      #
 #########################
 
-NAME = ze_walking_ded
+NAME = zombie
 
 CPP = c++
 FLAG = -MMD -Wall -Werror -Wextra -std=c++98 -g3
 
 DIR_HEADERS = headers/
 SRC_PATH = src/
-SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ_PATH	=	obj/
 OBJ		=	$(SRC:.cpp=.o)
 OBJS	=	$(addprefix $(OBJ_PATH), $(OBJ))

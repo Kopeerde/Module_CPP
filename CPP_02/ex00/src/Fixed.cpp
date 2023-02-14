@@ -6,6 +6,8 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 
 	this->exposant = 0;
+	for (int i = 0; i < NB_VAL_MANT; i++)
+		this->mantisse[i] = 0;
 }
 
 Fixed::Fixed(const Fixed &original)

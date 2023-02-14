@@ -29,7 +29,7 @@ class Fixed
 
 		// Fonctions membres
 		int getRawBits(void) const;
-		int toInt(void);
+		int toInt(void) const;
 
 		void setRawBits(int const raw);
 

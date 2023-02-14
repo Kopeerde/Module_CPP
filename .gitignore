@@ -1,6 +1,8 @@
 .idea/
 cmake*/
 
+lorem*
+
 # Prerequisites
 *.d
 

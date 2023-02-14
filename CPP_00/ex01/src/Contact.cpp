@@ -41,9 +41,11 @@ void Contact::ask_input(std::string *field)
 {
 	while (true)
 	{
-		std::cin >> *field;
+		std::getline(std::cin >> std::ws, *field);
 		if (*field == "\n")
 			continue;
+		if (std::cin.eof())
+			exit(1);
 		break;
 	}
 }

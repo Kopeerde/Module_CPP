@@ -16,6 +16,8 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 
 	this->exposant = 0;
+	for (int i = 0; i < NB_VAL_MANT; i++)
+		this->mantisse[i] = 0;
 }
 
 /**
@@ -27,6 +29,8 @@ Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
 	this->exposant = value;
+	for (int i = 0; i < NB_VAL_MANT; i++)
+		this->mantisse[i] = 0;
 }
 
 // TODO
@@ -34,16 +38,17 @@ Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
 
-	int buffer = value;
+	float buffer = value - roundf(value);
 	this->exposant = roundf(value);
 
-	while (roundf(buffer) != 0)
-		buffer /= 10;
-	buffer = buffer * 100000000; // 10^8
 	for (int i = 0; i < NB_VAL_MANT; i++)
 	{
-		this->mantisse[i] = buffer % 10;
-		buffer /= 10;
+		buffer *= 10;
+		if ((int) buffer % 10 != 0)
+			this->mantisse[i] = (int) buffer % 10;
+		else
+			this->mantisse[i] = 0;
+		buffer = buffer - (int) buffer % 10;
 	}
 }
 
@@ -134,15 +139,24 @@ void Fixed::setRawBits(const int raw)
  *
  * @return The value of the exponent.
  */
-int Fixed::toInt(void)
+int Fixed::toInt(void) const
 {
+	for (int i = 0; i < NB_VAL_MANT; i++)
+		std::cout << "index " << i << ": " << this->mantisse[i] << std::endl;
+
 	return this->exposant;
 }
 
 // TODO
 float Fixed::toFloat(void) const
 {
-	return 0;
+	float res = 0;
+
+	res += this->exposant;
+
+
+
+	return res;
 }
 
 
