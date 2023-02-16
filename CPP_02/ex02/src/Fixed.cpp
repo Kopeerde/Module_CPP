@@ -140,4 +140,14 @@ float Fixed::toFloat(void) const
 	return res;
 }
 
+Fixed Fixed::operator++()
+{
+	return this->exposant += 1;
+}
+
+Fixed Fixed::operator--()
+{
+	return this->exposant -= 1;
+}
+
 

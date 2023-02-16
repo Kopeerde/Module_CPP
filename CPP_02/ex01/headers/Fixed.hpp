@@ -2,8 +2,6 @@
 #ifndef MODULE_CPP_FIXED_HPP
 #define MODULE_CPP_FIXED_HPP
 
-#define NB_VAL_MANT 8
-
 #include <iostream>
 #include <cmath>
 
@@ -11,7 +9,7 @@ class Fixed
 {
 	private:
 		int exposant;
-		int mantisse[NB_VAL_MANT];
+		static const int mantisse_size = 8;
 
 	public:
 		// Constructeurs
@@ -28,13 +26,15 @@ class Fixed
 		Fixed& operator<<(const Fixed&);
 
 		// Fonctions membres
-		int getRawBits(void) const;
 		int toInt(void) const;
-
-		void setRawBits(int const raw);
 
 		float toFloat(void) const;
 
+		// getter
+		int getRawBits(void) const;
+
+		// setter
+		void setRawBits(int const raw);
 };
 
 
