@@ -5,9 +5,9 @@
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	Animal *list[10];
+	const Dog* j = new Dog();
+	const Cat* i = new Cat();
+/*	Animal *list[10]; // Ne compile pas car on ne peut instancier une classe de base "Animal"
 	for (int index = 0; index < 10; index++)
 	{
 		if (index < 5)
@@ -25,14 +25,14 @@ int main()
 	std::cout << list[0]->brain.ideas[1] << std::endl;
 	std::cout << list[1]->brain.ideas[0] << std::endl;
 	std::cout << list[1]->brain.ideas[1] << std::endl;
-
+*/
 
 
 
 	delete j;
 	delete i;
-	for (int index = 0; index < 10; index ++)
-		delete list[index];
+//	for (int index = 0; index < 10; index ++)
+//		delete list[index];
 
 
 	return 0;

@@ -11,16 +11,18 @@
 class Animal
 {
 	protected:
+		Animal();
+		virtual ~Animal();
+		Animal(const Animal &original);
+		Animal& operator=(const Animal&);
+
 		std::string type;
 
 	private:
 
 
 	public:
-		Animal();
-		virtual ~Animal();
-		Animal(const Animal &original);
-		Animal& operator=(const Animal&);
+		
 
 		Brain brain;
 		
