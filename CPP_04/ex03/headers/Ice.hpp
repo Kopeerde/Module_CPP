@@ -3,6 +3,7 @@
 #define ICE_HPP
 
 #include "./AMateria.hpp"
+#include <iostream>
 
 class Ice : public AMateria
 {

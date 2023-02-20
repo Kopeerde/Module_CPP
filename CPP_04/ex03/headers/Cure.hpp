@@ -4,6 +4,7 @@
 #define CURE_HPP
 
 #include "./AMateria.hpp"
+#include <iostream>
 
 
 class Cure : public AMateria
