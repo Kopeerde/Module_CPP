@@ -2,29 +2,29 @@
 // Created by kmendes- on 2/20/23.
 //
 
-#include "../headers/Form.hpp"
+#include "../headers/AForm.hpp"
 
-Form::Form(const std::string name, short sign_grade, short exec_grade) : name(name), sign_grade(sign_grade), exec_grade(exec_grade)
+AForm::AForm(const std::string name, short sign_grade, short exec_grade) : name(name), sign_grade(sign_grade), exec_grade(exec_grade)
 {
 	std::cout << "Default constructor for class Form called." << std::endl;
 	if (sign_grade < 1 || exec_grade < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	else if (150 < sign_grade || 150 < exec_grade)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	this->is_signed = 0;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 	std::cout << "Default destructor for class Form called." << std::endl;
 }
 
-Form::Form(const Form &original) : name(original.name), sign_grade(original.sign_grade), exec_grade(original.exec_grade)
+AForm::AForm(const AForm &original) : name(original.name), sign_grade(original.sign_grade), exec_grade(original.exec_grade)
 {
 	this->is_signed = original.is_signed;
 }
 
-void Form::beSigned(const Bureaucrat bureaucrat)
+void AForm::beSigned(const Bureaucrat bureaucrat)
 {
 	if (bureaucrat.getGrade() <= this->sign_grade)
 	{
@@ -32,11 +32,11 @@ void Form::beSigned(const Bureaucrat bureaucrat)
 		bureaucrat.signForm(*this);
 	}
 	else
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
 
-Form &Form::operator=(const Form &other)
+AForm &AForm::operator=(const AForm &other)
 {
 	if (this == &other)
 		return *this;
@@ -44,27 +44,27 @@ Form &Form::operator=(const Form &other)
 	return *this;
 }
 
-std::string Form::get_name() const
+std::string AForm::get_name() const
 {
 	return this->name;
 }
 
-bool Form::get_is_signed() const
+bool AForm::get_is_signed() const
 {
 	return this->is_signed;
 }
 
-short int Form::get_sign_grade() const
+short int AForm::get_sign_grade() const
 {
 	return this->sign_grade;
 }
 
-short int Form::get_exec_grade() const
+short int AForm::get_exec_grade() const
 {
 	return this->exec_grade;
 }
 
-std::ostream& operator<<(std::ostream& stream, const Form&self)
+std::ostream& operator<<(std::ostream& stream, const AForm& self)
 {
 	stream << self.get_name() << ", grade required signature " << self.get_sign_grade() << ", grade required execution " << self.get_exec_grade() << ", is signed " << self.get_is_signed();
 	return stream;
