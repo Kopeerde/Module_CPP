@@ -6,6 +6,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "./Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -20,7 +23,7 @@ class Bureaucrat
 
 		// Surcharges
 		Bureaucrat& operator=(const Bureaucrat&);
-		Bureaucrat& operator<<(const Bureaucrat&);
+
 
 		// Getters
 		std::string getName() const;
@@ -32,7 +35,7 @@ class Bureaucrat
 		// Member Functions
 		void increment_grade();
 		void decrement_grade();
-		void signForm(); // TODO
+		void signForm(const Form& form) const; // TODO
 
 		class GradeTooHighException : public std::exception {};
 
@@ -40,5 +43,6 @@ class Bureaucrat
 
 };
 
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat&);
 
 #endif //BUREAUCRAT_HPP

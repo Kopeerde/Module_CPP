@@ -42,6 +42,12 @@ int main()
 	{
 		Bureaucrat test = Bureaucrat("test", 1);
 		std::cout << "ligne affichee." << std::endl;
+		std::cout << test << std::endl;
+		test.decrement_grade();
+		std::cout << test << std::endl;
+		test.increment_grade();
+		std::cout << test << std::endl;
+
 	}
 	catch (Bureaucrat::GradeTooHighException)
 	{
@@ -51,6 +57,10 @@ int main()
 	{
 		std::cout << "arf" << std::endl;
 	}
+
+	Form formulaire = Form("test", 15, 15);
+	std::cout << formulaire << std::endl;
+
 
 
 

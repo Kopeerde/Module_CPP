@@ -6,14 +6,17 @@
 #define FORM_HPP
 
 #include <iostream>
+#include "./Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
 	private:
 		std::string const name;
 		bool is_signed;
-		const short sign_grade;
-		const short exec_grade;
+		short const sign_grade;
+		short const exec_grade;
 
 	public:
 		Form(std::string const name, short int sign_grade, short int exec_grade);
@@ -22,16 +25,16 @@ class Form
 
 		// Overload
 		Form& operator=(const Form &);
-		Form& operator<<(const Form &);
+
 
 		// Getters
 		std::string get_name() const;
 		bool get_is_signed() const;
-		const short int get_sign_grade() const;
-		const short int get_exec_grade() const;
+		short int get_sign_grade() const;
+		short int get_exec_grade() const;
 
 		// Setters
-		void beSigned();
+		void beSigned(const Bureaucrat bureaucrat);
 
 		// Exceptions
 		class GradeTooHighException : public std::exception {};
@@ -39,5 +42,6 @@ class Form
 
 };
 
+std::ostream& operator<<(std::ostream& stream, const Form&);
 
 #endif //FORM_HPP

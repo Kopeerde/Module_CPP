@@ -69,11 +69,21 @@ void Bureaucrat::decrement_grade()
 		this->grade++;
 }
 
-// TODO
-Bureaucrat &Bureaucrat::operator<<(const Bureaucrat &)
+
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 {
-	return *this;
+	stream << self.getName() << ", bureaucrat grade " << self.getGrade() << ".";
+	return stream;
 }
+
+void Bureaucrat::signForm(const Form& form) const
+{
+	if (form.get_is_signed() == 0)
+		std::cout << this->name + "couldn't sign " + form.get_name() + " because " + "TODO <reason>" << std::endl;
+	else
+		std::cout << this->name + " signed " + form.get_name() << std::endl;
+}
+
 
 
 
