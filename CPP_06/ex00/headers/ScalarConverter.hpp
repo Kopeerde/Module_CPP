@@ -6,6 +6,9 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <cstdlib>
+#include <limits>
+#include <iomanip>
 
 class ScalarConverter
 {
@@ -17,6 +20,8 @@ class ScalarConverter
 		~ScalarConverter();
 		ScalarConverter(const ScalarConverter &original);
 		ScalarConverter& operator=(const ScalarConverter&);
+
+		void convert(std::string str);
 
 };
 
