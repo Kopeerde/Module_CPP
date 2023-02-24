@@ -1,6 +1,6 @@
 
-#ifndef MODULE_CPP_FIXED_HPP
-#define MODULE_CPP_FIXED_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 #include <cmath>
@@ -31,19 +31,20 @@ class Fixed
 			// Assignation
 		Fixed& operator=(const Fixed&); // Surcharge operateur =
 
-		Fixed& operator<<(const Fixed&); // Surcharge operateur <<
 			// Comparaison
-		Fixed& operator>(const Fixed&); // Surcharge operateur >
-		Fixed& operator<(const Fixed&); // Surcharge operateur <
-		Fixed& operator>=(const Fixed&); // Surcharge operateur >=
-		Fixed& operator<=(const Fixed&); // Surcharge operateur <=
-		Fixed& operator==(const Fixed&); // Surcharge operateur ==
-		Fixed& operator!=(const Fixed&); // Surcharge operateur !=
+		bool operator>(const Fixed &other) const; // Surcharge operateur >
+		bool operator<(const Fixed &other) const; // Surcharge operateur <
+		bool operator>=(const Fixed &other) const; // Surcharge operateur >=
+		bool operator<=(const Fixed &other) const; // Surcharge operateur <=
+		bool operator==(const Fixed &other) const; // Surcharge operateur ==
+		bool operator!=(const Fixed &other) const; // Surcharge operateur !=
+
 			//Arithmetique
-		Fixed& operator+(const Fixed&); // Surcharge operateur +
-		Fixed& operator-(const Fixed&); // Surcharge operateur -
-		Fixed& operator*(const Fixed&); // Surcharge operateur *
-		Fixed& operator/(const Fixed&); // Surcharge operateur /
+		Fixed& operator+(const Fixed &other); // Surcharge operateur +
+		Fixed& operator-(const Fixed &other); // Surcharge operateur -
+		Fixed& operator*(const Fixed &other); // Surcharge operateur *
+		Fixed& operator/(const Fixed &other); // Surcharge operateur /
+
 			// Pre/Post increment
 		Fixed operator++(); // Surcharge prefix operateur ++<var>
 		Fixed &operator++(int); // Surcharge postfix operateur <var>++
@@ -55,9 +56,13 @@ class Fixed
 
 		float toFloat(void) const;
 
-		static Fixed min(const Fixed &left, const Fixed &right);
-		static Fixed max(const Fixed &left, const Fixed &right);
+		static Fixed& min(const Fixed &left, const Fixed &right);
+		static Fixed& min(Fixed &left, Fixed &right);
+		static Fixed& max(const Fixed &left, const Fixed &right);
+		static Fixed& max(Fixed &left, Fixed &right);
 };
 
+std::ostream& operator<<(std::ostream &stream, const Fixed&); // Surcharge operateur <<
 
-#endif //MODULE_CPP_FIXED_HPP
+
+#endif //FIXED_HPP

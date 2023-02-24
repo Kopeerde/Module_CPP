@@ -1,6 +1,6 @@
 
-#ifndef MODULE_CPP_HARL_HPP
-#define MODULE_CPP_HARL_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <string>
 #include <iostream>
@@ -18,4 +18,4 @@ class Harl
 };
 
 
-#endif //MODULE_CPP_HARL_HPP
+#endif //HARL_HPP

@@ -1,6 +1,6 @@
 
-#ifndef MODULE_CPP_FIXED_HPP
-#define MODULE_CPP_FIXED_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
@@ -21,4 +21,4 @@ class Fixed
 };
 
 
-#endif //MODULE_CPP_FIXED_HPP
+#endif //FIXED_HPP

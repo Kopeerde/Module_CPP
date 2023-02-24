@@ -2,8 +2,8 @@
 // Created by kmendes- on 1/26/23.
 //
 
-#ifndef MODULE_CPP_SCAVTRAP_HPP
-#define MODULE_CPP_SCAVTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include "./ClapTrap.hpp"
 
@@ -22,4 +22,4 @@ class ScavTrap : public ClapTrap
 };
 
 
-#endif //MODULE_CPP_SCAVTRAP_HPP
+#endif //SCAVTRAP_HPP

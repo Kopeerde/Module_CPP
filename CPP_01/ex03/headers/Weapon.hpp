@@ -1,6 +1,6 @@
 
-#ifndef MODULE_CPP_WEAPON_HPP
-#define MODULE_CPP_WEAPON_HPP
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <string>
 
@@ -17,4 +17,4 @@ class Weapon
 };
 
 
-#endif //MODULE_CPP_WEAPON_HPP
+#endif //WEAPON_HPP

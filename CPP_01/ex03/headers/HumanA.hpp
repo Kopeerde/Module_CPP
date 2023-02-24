@@ -1,6 +1,6 @@
 
-#ifndef MODULE_CPP_HUMANA_HPP
-#define MODULE_CPP_HUMANA_HPP
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include <string>
 #include <iostream>
@@ -22,4 +22,4 @@ class HumanA
 };
 
 
-#endif //MODULE_CPP_HUMANA_HPP
+#endif //HUMANA_HPP

@@ -8,7 +8,7 @@
 #include "./Animal.hpp"
 #include "./Brain.hpp"
 
-class Dog : public Animal
+class Dog : private Animal
 {
 	private:
 		Brain *brain;

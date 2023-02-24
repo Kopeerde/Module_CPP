@@ -2,8 +2,8 @@
 // Created by kmendes- on 1/25/23.
 //
 
-#ifndef MODULE_CPP_CLAPTRAP_HPP
-#define MODULE_CPP_CLAPTRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
 #include <iostream>
 
@@ -27,4 +27,4 @@ class ClapTrap
 };
 
 
-#endif //MODULE_CPP_CLAPTRAP_HPP
+#endif //CLAPTRAP_HPP

@@ -2,8 +2,8 @@
 // Created by kmendes- on 2/21/23.
 //
 
-#ifndef MODULE_CPP_INTERN_HPP
-#define MODULE_CPP_INTERN_HPP
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
 #include <iostream>
 
@@ -24,4 +24,4 @@ class Intern
 };
 
 
-#endif //MODULE_CPP_INTERN_HPP
+#endif //INTERN_HPP

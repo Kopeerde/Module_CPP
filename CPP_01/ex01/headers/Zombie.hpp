@@ -1,6 +1,6 @@
 
-#ifndef MODULE_CPP_ZOMBIE_HPP
-#define MODULE_CPP_ZOMBIE_HPP
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <string>
 #include <iostream>
@@ -20,4 +20,4 @@ class Zombie
 Zombie* newZombie();
 Zombie* zombieHorde(int N, std::string name);
 
-#endif //MODULE_CPP_ZOMBIE_HPP
+#endif //ZOMBIE_HPP

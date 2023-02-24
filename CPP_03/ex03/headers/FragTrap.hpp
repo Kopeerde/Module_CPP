@@ -2,8 +2,8 @@
 // Created by kmendes- on 1/26/23.
 //
 
-#ifndef MODULE_CPP_FRAGTRAP_HPP
-#define MODULE_CPP_FRAGTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include "./ClapTrap.hpp"
 
@@ -21,4 +21,4 @@ class FragTrap : public ClapTrap
 };
 
 
-#endif //MODULE_CPP_FRAGTRAP_HPP
+#endif //FRAGTRAP_HPP

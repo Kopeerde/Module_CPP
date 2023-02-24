@@ -10,7 +10,7 @@
 class Brain
 {
 	private:
-		
+		std::string ideas[100];
 
 	public:
 		Brain();
@@ -18,7 +18,6 @@ class Brain
 		Brain(const Brain &original);
 		Brain& operator=(const Brain&);
 
-		std::string ideas[100];
 };
 
 

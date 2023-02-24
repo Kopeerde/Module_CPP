@@ -85,9 +85,10 @@ Fixed& Fixed::operator=(const Fixed& other)
 }
 
 // TODO
-Fixed &Fixed::operator<<(const Fixed &)
+std::ostream &Fixed::operator<<(std::ostream &stream, const Fixed &)
 {
-	return *this;
+
+	return stream;
 }
 
 /*
@@ -148,6 +149,66 @@ Fixed Fixed::operator++()
 Fixed Fixed::operator--()
 {
 	return this->exposant -= 1;
+}
+
+Fixed &Fixed::operator++(int)
+{
+	return <#initializer#>;
+}
+
+Fixed &Fixed::operator--(int)
+{
+	return <#initializer#>;
+}
+
+bool Fixed::operator>(const Fixed &other) const
+{
+	return this->getRawBits() > other.getRawBits() ? 1 : 0 ;
+}
+
+bool Fixed::operator<(const Fixed &other) const
+{
+	return this->getRawBits() < other.getRawBits() ? 1 : 0;
+}
+
+bool Fixed::operator>=(const Fixed &other) const
+{
+	return this->getRawBits() >= other.getRawBits() ? 1 : 0;
+}
+
+bool Fixed::operator<=(const Fixed &other) const
+{
+	return this->getRawBits() <= other.getRawBits() ? 1 : 0;
+}
+
+bool Fixed::operator==(const Fixed &other) const
+{
+	return this->getRawBits() == other.getRawBits() ? 1 : 0;
+}
+
+bool Fixed::operator!=(const Fixed &other) const
+{
+	return this->getRawBits() != other.getRawBits() ? 1 : 0;
+}
+
+Fixed &Fixed::operator+(const Fixed &other)
+{
+	return *this;
+}
+
+Fixed &Fixed::operator-(const Fixed &other)
+{
+	return *this;
+}
+
+Fixed &Fixed::operator*(const Fixed &other)
+{
+	return *this;
+}
+
+Fixed &Fixed::operator/(const Fixed &other)
+{
+	return *this;
 }
 
 

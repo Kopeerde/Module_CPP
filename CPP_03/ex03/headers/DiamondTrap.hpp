@@ -2,8 +2,8 @@
 // Created by kmendes- on 1/26/23.
 //
 
-#ifndef MODULE_CPP_DIAMONDTRAP_HPP
-#define MODULE_CPP_DIAMONDTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
 #include "./ClapTrap.hpp"
 #include "./FragTrap.hpp"
@@ -30,4 +30,4 @@ class DiamondTrap : public ScavTrap, public FragTrap
 };
 
 
-#endif //MODULE_CPP_DIAMONDTRAP_HPP
+#endif //DIAMONDTRAP_HPP

@@ -1,6 +1,6 @@
 
-#ifndef MODULE_CPP_HUMANB_HPP
-#define MODULE_CPP_HUMANB_HPP
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include <iostream>
 #include <string>
@@ -23,4 +23,4 @@ public:
 };
 
 
-#endif //MODULE_CPP_HUMANB_HPP
+#endif //HUMANB_HPP
