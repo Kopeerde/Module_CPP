@@ -1,38 +1,18 @@
 
 #include "../headers/sed.hpp"
 
-void line_shift(std::string *line, char *search, int index)
-{
-	int len_search = strlen(search);
-
-	for (int i = index; (*line)[i]; i++)
-	{
-		if ((i + len_search) > (int) line->size())
-			(*line)[i] = '\0';
-		else
-			(*line)[i] = (*line)[i + len_search];
-	}
-}
-
 void line_checker(std::string *line, char *search, char *replace)
 {
-	int j;
+	int j = 0;
 
-	for (int i = 0; (*line)[i]; i++)
+	while (j != -1)
 	{
-		j = 0;
-		if ((*line)[i] == search[0])
+		j = line->find(search, j, strlen(search));
+		if (j != -1)
 		{
-			while ((*line)[i + j] == search[j])
-			{
-				j++;
-				if (search[j] == '\0')
-				{
-					line->insert(i, replace);
-					i += strlen(replace);
-					line_shift(line, search, i);
-				}
-			}
+			line->erase(j, strlen(search));
+			line->insert(j, replace);
+			j += strlen(search);
 		}
 	}
 }
@@ -47,7 +27,7 @@ int main(int argc, char **argv)
 	 */
 	if (argc == 4)
 	{
-		if (argv[2][0] == '\0' || argv[3][0] == '\0') // On verifie que l'on ne souhaite ni rmplacer le charactere null, ni en rajouter
+		if (argv[2][0] == '\0' || argv[3][0] == '\0') // On verifie que l'on ne souhaite ni remplacer le charactere null, ni en rajouter
 			return 0;
 
 		std::string s = argv[2]; // Verification que ce que l'on remplace ne soit pas le charactere null
@@ -60,7 +40,18 @@ int main(int argc, char **argv)
 		s += ".replace";
 
 		std::ifstream src_file(argv[1]); // Ouverture des fichiers sources et destinations
+		if (src_file.fail())
+		{
+			std::cout << "Une erreure s'est produite lors de l'ouverture du fichier." << std::endl;
+			return 0;
+		}
 		std::ofstream dst_file(s.c_str());
+		if (dst_file.fail())
+		{
+			src_file.close();
+			std::cout << "Une erreure s'est produite lors de la creation du fichier de reception." << std::endl;
+			return 0;
+		}
 
 		while (getline(src_file, line)) // Lecture des lignes et reecritures si necessaire
 		{
@@ -71,5 +62,8 @@ int main(int argc, char **argv)
 		src_file.close(); // Fermeture des fichiers sources et de destinations
 		dst_file.close();
 	}
+	else
+		std::cout << "Erreur lors du lancement, veuillez entrer : ./sed <fichier> <str_a_chercher> <std_de_remplacement>" << std::endl;
+
 	return 0;
 }

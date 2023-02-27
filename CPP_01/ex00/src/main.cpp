@@ -15,5 +15,8 @@ int main()
 		Zombie *test2 = new Zombie("test3"); // Cree un zombie dans la heap
 		delete test2;
 	}
+	{
+		randomChump("ET ON FAIT TOURNER LES SERVIETTES");
+	}
 	return 0;
 }

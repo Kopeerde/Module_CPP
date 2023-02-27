@@ -5,5 +5,6 @@
 #include <string>
 #include <string.h>
 #include <fstream>
+#include <iostream>
 
 #endif //SED_HPP

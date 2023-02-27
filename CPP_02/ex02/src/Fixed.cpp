@@ -163,32 +163,32 @@ Fixed &Fixed::operator--(int)
 
 bool Fixed::operator>(const Fixed &other) const
 {
-	return this->getRawBits() > other.getRawBits() ? 1 : 0 ;
+	return this->getRawBits() > other.getRawBits();
 }
 
 bool Fixed::operator<(const Fixed &other) const
 {
-	return this->getRawBits() < other.getRawBits() ? 1 : 0;
+	return this->getRawBits() < other.getRawBits();
 }
 
 bool Fixed::operator>=(const Fixed &other) const
 {
-	return this->getRawBits() >= other.getRawBits() ? 1 : 0;
+	return this->getRawBits() >= other.getRawBits();
 }
 
 bool Fixed::operator<=(const Fixed &other) const
 {
-	return this->getRawBits() <= other.getRawBits() ? 1 : 0;
+	return this->getRawBits() <= other.getRawBits();
 }
 
 bool Fixed::operator==(const Fixed &other) const
 {
-	return this->getRawBits() == other.getRawBits() ? 1 : 0;
+	return this->getRawBits() == other.getRawBits();
 }
 
 bool Fixed::operator!=(const Fixed &other) const
 {
-	return this->getRawBits() != other.getRawBits() ? 1 : 0;
+	return this->getRawBits() != other.getRawBits();
 }
 
 Fixed &Fixed::operator+(const Fixed &other)

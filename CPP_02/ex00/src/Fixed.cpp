@@ -1,6 +1,5 @@
 
 #include "../headers/Fixed.hpp"
-#include "../../ex02/headers/Fixed.hpp"
 
 
 Fixed::Fixed()

@@ -2,15 +2,15 @@
 #include "../headers/Harl.hpp"
 
 
-int level_input(std::string level)
+int level_input(std::string &level)
 {
-	if (level.compare("DEBUG"))
+	if (level.compare("DEBUG") == 0)
 		return 0;
-	if (level.compare("INFO"))
+	if (level.compare("INFO") == 0)
 		return 1;
-	if (level.compare("WARNING"))
+	if (level.compare("WARNING") == 0)
 		return 2;
-	if (level.compare("ERROR"))
+	if (level.compare("ERROR") == 0)
 		return 3;
 	return -1;
 }

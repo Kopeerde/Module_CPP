@@ -11,11 +11,20 @@ class Fixed
 		static const int mantisse_size = 8;
 
 	public:
+		// Constructeurs
 		Fixed();
 		Fixed(const Fixed &original);
+
+		// Destructeurs
 		~Fixed();
+
+		// Surcharges
 		Fixed& operator=(const Fixed&);
+
+		// Getters
 		int getRawBits(void) const;
+
+		// Setters
 		void setRawBits(int const raw);
 
 };
