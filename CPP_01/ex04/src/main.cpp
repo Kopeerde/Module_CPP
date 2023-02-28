@@ -40,13 +40,13 @@ int main(int argc, char **argv)
 		s += ".replace";
 
 		std::ifstream src_file(argv[1]); // Ouverture des fichiers sources et destinations
-		if (src_file.fail())
+		if (src_file.fail() || src_file.bad())
 		{
 			std::cout << "Une erreure s'est produite lors de l'ouverture du fichier." << std::endl;
 			return 0;
 		}
 		std::ofstream dst_file(s.c_str());
-		if (dst_file.fail())
+		if (dst_file.fail() || dst_file.bad())
 		{
 			src_file.close();
 			std::cout << "Une erreure s'est produite lors de la creation du fichier de reception." << std::endl;

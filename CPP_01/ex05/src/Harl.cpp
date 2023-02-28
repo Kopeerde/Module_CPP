@@ -40,6 +40,30 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
+	void (Harl::*f_ptr[5])() = {&Harl::debug,
+								&Harl::info,
+								&Harl::warning,
+								&Harl::error
+	};
+	char *lst[5] = {(char *)"DEBUG",
+					(char *) "INFO",
+					(char *) "WARNING",
+					(char *) "ERROR"
+	};
+
+
+	for (int i = 0; lst[i]; i++)
+	{
+		if (level.compare(lst[i]) == 0)
+		{
+			(this->*f_ptr[i])();
+			return;
+		}
+	}
+	
+	std::cout << "[ Probably complaining about insignificant problem ]" << std::endl;
+
+	/*
 	switch (level_input(level))
 	{
 		case 0:
@@ -56,5 +80,5 @@ void Harl::complain(std::string level)
 			break;
 		case -1:
 			std::cout << "[ Probably complaining about insignificant problem ]" << std::endl;
-	}
+	}*/
 }
