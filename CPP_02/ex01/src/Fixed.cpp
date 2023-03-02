@@ -26,6 +26,8 @@ Fixed::Fixed()
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
+	if (value > 16777215)
+		throw std::overflow_error("Value is over 16777215 (2^24)");
 	this->exposant = value;
 }
 
@@ -34,6 +36,8 @@ Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
 	(void) value;
+	// Stocker le int sur les 24 premiers bits
+	// Stocker la mantisse dans les 8 derniers bits
 }
 
 /**

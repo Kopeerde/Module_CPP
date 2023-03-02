@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	 */
 	if (argc == 4)
 	{
-		if (argv[2][0] == '\0' || argv[3][0] == '\0') // On verifie que l'on ne souhaite ni remplacer le charactere null, ni en rajouter
+		if (argv[2][0] == '\0') // On verifie que l'on ne souhaite pas remplacer le charactere null.
 			return 0;
 
 		std::string s = argv[2]; // Verification que ce que l'on remplace ne soit pas le charactere null
