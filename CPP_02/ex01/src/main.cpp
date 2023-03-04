@@ -5,7 +5,8 @@
 int main()
 {
 	Fixed a;
-	Fixed const b( 16777216 );
+	Fixed const b( 16777215 );
+//	Fixed const b( 16777216 );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 

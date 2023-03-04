@@ -1,6 +1,6 @@
 
 #include "../headers/Fixed.hpp"
-
+#include <bitset>
 /*
  ********************************************************
  * 					CONSTRUCTEURS						*
@@ -29,15 +29,23 @@ Fixed::Fixed(const int value)
 	if (value > 16777215)
 		throw std::overflow_error("Value is over 16777215 (2^24)");
 	this->exposant = value;
+	std::bitset<32> x(value);
+	std::cout << x << std::endl;
 }
 
 // TODO
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	(void) value;
-	// Stocker le int sur les 24 premiers bits
+	if ((int) value => 2^(32 - (this->mantisse_size + 1)))
+		throw std::overflow_error("Value is over 16777215 (2^24)");
+	// Stocker le int sur les 32 - (this->mantisse_size + 1) premiers bits
+	this->exposant = (int) value;
 	// Stocker la mantisse dans les 8 derniers bits
+	for (int i = 10; i < 18; i++)
+	{
+
+	}
 }
 
 /**
