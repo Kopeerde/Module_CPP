@@ -7,7 +7,7 @@
 class Fixed
 {
 	private:
-		int exposant;
+		int fixed_value;
 		static const int mantisse_size = 8;
 
 	public:

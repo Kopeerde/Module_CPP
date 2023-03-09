@@ -1,12 +1,11 @@
 
 #include "../headers/Fixed.hpp"
-#include <bitset>
+
 /*
  ********************************************************
  * 					CONSTRUCTEURS						*
  ********************************************************
  */
-
 
 /**
  * Default constructor
@@ -15,37 +14,27 @@ Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 
-	this->exposant = 0;
+	fixed_value = 0;
 }
 
 /**
- * It's a constructor that takes an int as a parameter and sets the value of the exposant to the value of the int.
+ * It's a constructor that takes an int as a parameter and sets the value of the fixed_value to the value of the int.
  *
  * @param value the value to assign to the Fixed instance.
 */
+// TODO : Pourquoi cela marche??
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	if (value > 16777215)
-		throw std::overflow_error("Value is over 16777215 (2^24)");
-	this->exposant = value;
-	std::bitset<32> x(value);
-	std::cout << x << std::endl;
+
+	this->fixed_value = value << this->mantisse_size;
 }
 
-// TODO
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	if ((int) value => 2^(32 - (this->mantisse_size + 1)))
-		throw std::overflow_error("Value is over 16777215 (2^24)");
-	// Stocker le int sur les 32 - (this->mantisse_size + 1) premiers bits
-	this->exposant = (int) value;
-	// Stocker la mantisse dans les 8 derniers bits
-	for (int i = 10; i < 18; i++)
-	{
 
-	}
+	this->fixed_value = (int) (value * (1 << this->mantisse_size));
 }
 
 /**
@@ -56,7 +45,8 @@ Fixed::Fixed(const float value)
 Fixed::Fixed(const Fixed &original)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->exposant = original.getRawBits();
+
+	fixed_value = original.getRawBits();
 }
 
 /*
@@ -70,14 +60,12 @@ Fixed::Fixed(const Fixed &original)
  * The destructor is called when the object is destroyed
 */
 Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+	{ std::cout << "Destructor called" << std::endl; }
 
 /*
- ********************************************************
- *						SURCHARGES						*
- ********************************************************
+********************************************************
+*						SURCHARGES						*
+********************************************************
 */
 
 
@@ -90,16 +78,17 @@ Fixed::~Fixed()
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assigment operator called" << std::endl;
+
 	if (this == &other)
 		return *this;
-	exposant = other.getRawBits();
+	fixed_value = other.getRawBits();
 	return *this;
 }
 
-// TODO
-Fixed &Fixed::operator<<(const Fixed &)
+std::ostream& operator<<(std::ostream& stream, const Fixed& self)
 {
-	return *this;
+	stream << self.toFloat();
+	return stream;
 }
 
 /*
@@ -110,46 +99,34 @@ Fixed &Fixed::operator<<(const Fixed &)
 
 
 /**
- * It returns the value of the member variable exposant
+ * It returns the value of the member variable fixed_value
  *
- * @return The value of the member variable exposant.
+ * @return The value of the member variable fixed_value.
  */
-int Fixed::getRawBits(void) const
-{
-//	std::cout << "getRawBits member function called" << std::endl;
-	return this->exposant;
-}
+int Fixed::getRawBits() const
+	{ return this->fixed_value; }
 
 /**
- * It sets the value of the variable exposant to the value of the parameter raw.
- *
- * @param raw the raw value of the fixed point value
- */
-void Fixed::setRawBits(const int raw)
-{
-	this->exposant = raw;
-}
+* It sets the value of the variable fixed_value to the value of the parameter raw.
+*
+* @param raw the raw value of the fixed point value
+*/
+void    Fixed::setRawBits(int const raw)
+	{ this->fixed_value = raw; }
 
 /**
- * It returns the value of the fixed point number as an integer
- *
- * @return The value of the exponent.
- */
-int Fixed::toInt(void) const
+* It returns the value of the fixed point number as an integer
+*
+* @return The value of the exponent.
+*/
+int Fixed::toInt() const
 {
-	return this->exposant;
+	return this->fixed_value >> this->mantisse_size;
 }
 
-// TODO
 float Fixed::toFloat(void) const
 {
-	float res = 0;
-
-	res += this->exposant;
-
-
-
-	return res;
+	return (float) fixed_value / (1 << mantisse_size);
 }
 
 

@@ -8,7 +8,7 @@
 class Fixed
 {
 	private:
-		int exposant;
+		int fixed_value;
 		static const int mantisse_size = 8;
 
 	public:
@@ -46,23 +46,22 @@ class Fixed
 		Fixed& operator/(const Fixed &other); // Surcharge operateur /
 
 			// Pre/Post increment
-		Fixed operator++(); // Surcharge prefix operateur ++<var>
-		Fixed &operator++(int); // Surcharge postfix operateur <var>++
-		Fixed operator--(); // Surcharge prefix operateur --<var>
-		Fixed &operator--(int); // Surcharge postfix operateur <var>--
+		Fixed &operator++(); // Surcharge prefix operateur ++<var>
+		Fixed operator++(int); // Surcharge postfix operateur <var>++
+		Fixed &operator--(); // Surcharge prefix operateur --<var>
+		Fixed operator--(int); // Surcharge postfix operateur <var>--
 
 		// Fonctions membres
 		int toInt(void) const;
 
 		float toFloat(void) const;
 
-		static Fixed& min(const Fixed &left, const Fixed &right);
+		static const Fixed& min(const Fixed &left, const Fixed &right);
 		static Fixed& min(Fixed &left, Fixed &right);
-		static Fixed& max(const Fixed &left, const Fixed &right);
+		static const Fixed& max(const Fixed &left, const Fixed &right);
 		static Fixed& max(Fixed &left, Fixed &right);
 };
 
 std::ostream& operator<<(std::ostream &stream, const Fixed&); // Surcharge operateur <<
-
 
 #endif //FIXED_HPP

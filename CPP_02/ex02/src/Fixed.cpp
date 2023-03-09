@@ -7,7 +7,6 @@
  ********************************************************
  */
 
-
 /**
  * Default constructor
  */
@@ -15,25 +14,26 @@ Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 
-	this->exposant = 0;
+	fixed_value = 0;
 }
 
 /**
- * It's a constructor that takes an int as a parameter and sets the value of the exposant to the value of the int.
+ * It's a constructor that takes an int as a parameter and sets the value of the fixed_value to the value of the int.
  *
  * @param value the value to assign to the Fixed instance.
 */
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->exposant = value;
+
+	this->fixed_value = value << this->mantisse_size;
 }
 
-// TODO
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	(void) value;
+
+	this->fixed_value = (int) (value * (1 << this->mantisse_size));
 }
 
 /**
@@ -44,7 +44,8 @@ Fixed::Fixed(const float value)
 Fixed::Fixed(const Fixed &original)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->exposant = original.getRawBits();
+
+	fixed_value = original.getRawBits();
 }
 
 /*
@@ -58,14 +59,62 @@ Fixed::Fixed(const Fixed &original)
  * The destructor is called when the object is destroyed
 */
 Fixed::~Fixed()
+{ std::cout << "Destructor called" << std::endl; }
+
+
+/*
+ ************************************************
+ *					SETTERS						*
+ ************************************************
+*/
+
+/**
+* It sets the value of the variable fixed_value to the value of the parameter raw.
+*
+* @param raw the raw value of the fixed point value
+*/
+void    Fixed::setRawBits(int const raw)
+{ this->fixed_value = raw; }
+
+/*
+ ************************************************
+ *					GETTERS						*
+ ************************************************
+*/
+
+/**
+ * It returns the value of the member variable fixed_value
+ *
+ * @return The value of the member variable fixed_value.
+ */
+int Fixed::getRawBits() const
+{ return this->fixed_value; }
+
+/*
+ ************************************************
+ *					FONCTIONS MEMBRES			*
+ ************************************************
+*/
+
+/**
+* It returns the value of the fixed point number as an integer
+*
+* @return The value of the exponent.
+*/
+int Fixed::toInt() const
 {
-	std::cout << "Destructor called" << std::endl;
+	return this->fixed_value >> this->mantisse_size;
+}
+
+float Fixed::toFloat(void) const
+{
+	return (float) fixed_value / (1 << mantisse_size);
 }
 
 /*
- ********************************************************
- *						SURCHARGES						*
- ********************************************************
+********************************************************
+*						SURCHARGES						*
+********************************************************
 */
 
 
@@ -78,87 +127,43 @@ Fixed::~Fixed()
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assigment operator called" << std::endl;
+
 	if (this == &other)
 		return *this;
-	exposant = other.getRawBits();
+	fixed_value = other.getRawBits();
 	return *this;
 }
 
-// TODO
-std::ostream &Fixed::operator<<(std::ostream &stream, const Fixed &)
+std::ostream& operator<<(std::ostream& stream, const Fixed& self)
 {
-
+	stream << self.toFloat();
 	return stream;
 }
 
-/*
- ************************************************
- *					FONCTIONS MEMBRES			*
- ************************************************
-*/
-
-
-/**
- * It returns the value of the member variable exposant
- *
- * @return The value of the member variable exposant.
- */
-int Fixed::getRawBits(void) const
+Fixed& Fixed::operator++()
 {
-//	std::cout << "getRawBits member function called" << std::endl;
-	return this->exposant;
+	// Pre-increment
+	this->fixed_value += 1;
+	return *this;
 }
 
-/**
- * It sets the value of the variable exposant to the value of the parameter raw.
- *
- * @param raw the raw value of the fixed point value
- */
-void Fixed::setRawBits(const int raw)
+Fixed& Fixed::operator--()
 {
-	this->exposant = raw;
+	this->fixed_value -= 1;
+	return *this;
 }
 
-/**
- * It returns the value of the fixed point number as an integer
- *
- * @return The value of the exponent.
- */
-int Fixed::toInt(void) const
+Fixed Fixed::operator++(int)
 {
-	return this->exposant;
+	// Post-increment
+	Fixed temp(*this);
+	++(*this);
+	return temp;
 }
 
-// TODO
-float Fixed::toFloat(void) const
+Fixed Fixed::operator--(int)
 {
-	float res = 0;
-
-	res += this->exposant;
-
-
-
-	return res;
-}
-
-Fixed Fixed::operator++()
-{
-	return this->exposant += 1;
-}
-
-Fixed Fixed::operator--()
-{
-	return this->exposant -= 1;
-}
-
-Fixed &Fixed::operator++(int)
-{
-	return <#initializer#>;
-}
-
-Fixed &Fixed::operator--(int)
-{
-	return <#initializer#>;
+	return *this;
 }
 
 bool Fixed::operator>(const Fixed &other) const
@@ -193,22 +198,61 @@ bool Fixed::operator!=(const Fixed &other) const
 
 Fixed &Fixed::operator+(const Fixed &other)
 {
+	(void) other;
 	return *this;
 }
 
 Fixed &Fixed::operator-(const Fixed &other)
 {
+	(void) other;
 	return *this;
 }
 
 Fixed &Fixed::operator*(const Fixed &other)
 {
+	(void) other;
+
 	return *this;
 }
 
 Fixed &Fixed::operator/(const Fixed &other)
 {
+	(void) other;
+
 	return *this;
 }
 
+/*
+********************************************************
+*					FONCTIONS STATIQUES					*
+********************************************************
+*/
+
+const Fixed &Fixed::min(const Fixed &left, const Fixed &right)
+{
+	if (left.getRawBits() < right.getRawBits())
+		return left;
+	return right;
+}
+
+Fixed &Fixed::min(Fixed &left, Fixed &right)
+{
+	if (left.getRawBits() < right.getRawBits())
+		return left;
+	return right;
+}
+
+const Fixed &Fixed::max(const Fixed &left, const Fixed &right)
+{
+	if (left.getRawBits() < right.getRawBits())
+		return right;
+	return left;
+}
+
+Fixed &Fixed::max(Fixed &left, Fixed &right)
+{
+	if (left.getRawBits() < right.getRawBits())
+		return right;
+	return left;
+}
 
