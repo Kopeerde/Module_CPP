@@ -34,7 +34,7 @@ Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
 
-	this->fixed_value = (int) (value * (1 << this->mantisse_size));
+	this->fixed_value = roundf(value * (1 << this->mantisse_size));
 }
 
 /**
