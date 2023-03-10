@@ -202,29 +202,33 @@ bool Fixed::operator!=(const Fixed &other) const
 	return this->getRawBits() != other.getRawBits();
 }
 
-Fixed &Fixed::operator+(const Fixed &other) // TODO
+Fixed &Fixed::operator+(const Fixed &other)
 {
-	this->fixed_value = this->toFloat() + other.toFloat();
+	Fixed buffer(this->toFloat() + other.toFloat());
+	*this = buffer;
 	return *this;
 }
 
-Fixed &Fixed::operator-(const Fixed &other) // TODO
+Fixed &Fixed::operator-(const Fixed &other)
 {
-	this->fixed_value = this->toFloat() - other.toFloat();
-
-	return *this;
-}
-
-Fixed &Fixed::operator*(const Fixed &other) // TODO
-{
-	this->setRawBits(this->toFloat() * other.toFloat());
+	Fixed buffer(this->toFloat() - other.toFloat());
+	*this = buffer;
 
 	return *this;
 }
 
-Fixed &Fixed::operator/(const Fixed &other) // TODO
+Fixed &Fixed::operator*(const Fixed &other)
 {
-	this->fixed_value = this->toFloat() / other.toFloat();
+	Fixed buffer(this->toFloat() * other.toFloat());
+	*this = buffer;
+
+	return *this;
+}
+
+Fixed &Fixed::operator/(const Fixed &other)
+{
+	Fixed buffer(this->toFloat() / other.toFloat());
+	*this = buffer;
 
 	return *this;
 }

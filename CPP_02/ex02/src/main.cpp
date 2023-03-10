@@ -23,7 +23,7 @@ int main()
 		std::cout << (a + Fixed(10.05f)) << "\n" << std::endl;
 
 		// test -
-		std::cout << "- test : a - 10.05 : ~-10.05" << std::endl;
+		std::cout << "- test : a - 10.05 : ~0" << std::endl;
 		std::cout << (a - Fixed(10.05f)) << "\n" << std::endl;
 
 		// test /
