@@ -3,7 +3,7 @@
 #      DEFINE SRCS      #
 #########################
 
-NAME = zombie
+NAME = fragtrap
 
 CPP = c++
 FLAG = -MMD -Wall -Werror -Wextra -std=c++98 -g3
