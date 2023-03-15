@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/21/23.
-//
+
 
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP

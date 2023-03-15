@@ -52,3 +52,20 @@ void ScavTrap::guardGate()
 	this->energy--;
 	std::cout << "ScavTrap " << this->name << " have " << this->energy << " energy points left." << std::endl;
 }
+
+void ScavTrap::attack(const std::string &target)
+{
+	if (this->hp <= 0)
+	{
+		std::cout << "ScavTrap " << this->name << " is dead and couldn't perform this action" << std::endl;
+		return ;
+	}
+	if (this->energy > 0)
+	{
+		std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attack_dmg << " points of damage!" << std::endl;
+		this->energy--;
+		std::cout << "ScavTrap " << this->name << " have " << this->energy << " energy points left" << std::endl;
+	}
+	else
+		std::cout << "ScavTrap " << this->name << "don't have anymore energy left." << std::endl;
+}

@@ -40,10 +40,10 @@ class Fixed
 		bool operator!=(const Fixed &other) const; // Surcharge operateur !=
 
 			//Arithmetique
-		Fixed& operator+(const Fixed &other); // Surcharge operateur +
-		Fixed& operator-(const Fixed &other); // Surcharge operateur -
-		Fixed& operator*(const Fixed &other); // Surcharge operateur *
-		Fixed& operator/(const Fixed &other); // Surcharge operateur /
+		Fixed operator+(const Fixed &other) const; // Surcharge operateur +
+		Fixed operator-(const Fixed &other) const; // Surcharge operateur -
+		Fixed operator*(const Fixed &other) const; // Surcharge operateur *
+		Fixed operator/(const Fixed &other) const; // Surcharge operateur /
 
 			// Pre/Post increment
 		Fixed &operator++(); // Surcharge prefix operateur ++<var>

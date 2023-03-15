@@ -3,14 +3,14 @@
 #      DEFINE SRCS      #
 #########################
 
-NAME = serializer
+NAME = RPN
 
 CPP = c++
 FLAG = -MMD -Wall -Werror -Wextra -std=c++98 -g3
 
 DIR_HEADERS = headers/
 SRC_PATH = src/
-SRC = main.cpp Serializer.cpp
+SRC = main.cpp
 OBJ_PATH	=	obj/
 OBJ		=	$(SRC:.cpp=.o)
 OBJS	=	$(addprefix $(OBJ_PATH), $(OBJ))

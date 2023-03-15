@@ -22,7 +22,6 @@ Fixed::Fixed()
  *
  * @param value the value to assign to the Fixed instance.
 */
-// TODO : Pourquoi cela marche??
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;

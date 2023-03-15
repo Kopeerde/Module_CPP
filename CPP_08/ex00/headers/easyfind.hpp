@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/23/23.
-//
+
 
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP

@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/20/23.
-//
+
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP

@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 1/25/23.
-//
+
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
@@ -21,7 +19,7 @@ class ClapTrap
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap&);
 
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

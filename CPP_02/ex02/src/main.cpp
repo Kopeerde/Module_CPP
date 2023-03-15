@@ -67,7 +67,7 @@ int main()
 		std::cout << "<= test : c <= a : true" << std::endl;
 		std::cout << (a <= c) << "\n" << std::endl;
 
-		std::cout << "<= test : a < b : true" << std::endl;
+		std::cout << "<= test : a <= b : true" << std::endl;
 		std::cout << (a <= b) << "\n" << std::endl;
 
 		std::cout << "<= test : b <= a : false" << std::endl;
@@ -114,7 +114,7 @@ int main()
 
 		std::cout << "Post-Decrement test" << std::endl;
 		std::cout << a << std::endl;
-		std::cout << a++ << "\n" << std::endl;
+		std::cout << a-- << "\n" << std::endl;
 	}
 
 	// Test fonctions membres min/max

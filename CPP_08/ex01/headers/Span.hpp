@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/23/23.
-//
 
 #ifndef SPAN_HPP
 #define SPAN_HPP
