@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef CAT_HPP
 #define CAT_HPP
@@ -8,7 +6,7 @@
 #include "./Animal.hpp"
 #include "./Brain.hpp"
 
-class Cat : private Animal
+class Cat : public Animal
 {
 	private:
 		Brain *brain;
@@ -18,6 +16,8 @@ class Cat : private Animal
 		virtual ~Cat();
 		Cat(const Cat &original);
 		Cat& operator=(const Cat&);
+
+		// Fonctions membre
 		void makeSound() const;
 };
 

@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #include "../headers/WrongCat.hpp"
 
@@ -14,7 +12,7 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat destructor called." << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &original)
+WrongCat::WrongCat(const WrongCat &original) : WrongAnimal(original)
 {
 	this->type = original.type;
 }

@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/17/23.
-//
+
 
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
@@ -17,6 +15,12 @@ class Brain
 		~Brain();
 		Brain(const Brain &original);
 		Brain& operator=(const Brain&);
+
+		// Setter
+		void set_idea(int index, std::string str);
+
+		// Getter
+		std::string get_idea(int index) const;
 
 };
 

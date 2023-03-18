@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef WRONGCAT_HPP
 #define WRONGCAT_HPP
@@ -17,8 +15,9 @@ class WrongCat : public WrongAnimal
 		virtual ~WrongCat();
 		WrongCat(const WrongCat &original);
 		WrongCat& operator=(const WrongCat&);
-		void makeSound() const;
 
+		// Fonctions membre
+		void makeSound() const;
 };
 
 

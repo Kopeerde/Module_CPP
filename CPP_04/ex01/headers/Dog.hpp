@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef DOG_HPP
 #define DOG_HPP
@@ -8,7 +6,7 @@
 #include "./Animal.hpp"
 #include "./Brain.hpp"
 
-class Dog : private Animal
+class Dog : public Animal
 {
 	private:
 		Brain *brain;
@@ -18,6 +16,8 @@ class Dog : private Animal
 		virtual ~Dog();
 		Dog(const Dog &original);
 		Dog& operator=(const Dog&);
+
+		// Fonctions membre
 		void makeSound() const;
 };
 

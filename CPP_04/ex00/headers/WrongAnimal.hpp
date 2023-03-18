@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef WRONGANIMAL_HPP
 #define WRONGANIMAL_HPP
@@ -20,8 +18,12 @@ class WrongAnimal
 		virtual ~WrongAnimal();
 		WrongAnimal(const WrongAnimal &original);
 		WrongAnimal& operator=(const WrongAnimal&);
-		virtual void makeSound() const;
+
+		// Getters
 		std::string getType() const;
+
+		// Fonctions membre
+		void makeSound() const;
 };
 
 

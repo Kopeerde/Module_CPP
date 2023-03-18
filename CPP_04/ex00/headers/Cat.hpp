@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef CAT_HPP
 #define CAT_HPP
@@ -17,6 +15,8 @@ class Cat : public Animal
 		virtual ~Cat();
 		Cat(const Cat &original);
 		Cat& operator=(const Cat&);
+
+		// Fonctions membre
 		void makeSound() const;
 };
 

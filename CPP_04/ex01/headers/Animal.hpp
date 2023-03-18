@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
@@ -14,7 +12,7 @@ class Animal
 		std::string type;
 
 	private:
-
+		Brain *brain;
 
 	public:
 		Animal();
@@ -22,11 +20,11 @@ class Animal
 		Animal(const Animal &original);
 		Animal& operator=(const Animal&);
 
-		Brain brain;
-		
-		virtual void makeSound() const;
-		
+		//Getters
 		std::string getType() const;
+
+		// Fonctions membre
+		virtual void makeSound() const;
 };
 
 
