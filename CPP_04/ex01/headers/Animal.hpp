@@ -12,19 +12,22 @@ class Animal
 		std::string type;
 
 	private:
-		Brain *brain;
+
 
 	public:
 		Animal();
 		virtual ~Animal();
 		Animal(const Animal &original);
 		Animal& operator=(const Animal&);
-
-		//Getters
-		std::string getType() const;
-
-		// Fonctions membre
+		
 		virtual void makeSound() const;
+
+		// Getter
+		std::string getType() const;
+		virtual std::string get_idea(unsigned int index) const = 0;
+
+		// Setter
+		virtual void set_idea(unsigned int index, std::string str) = 0;
 };
 
 

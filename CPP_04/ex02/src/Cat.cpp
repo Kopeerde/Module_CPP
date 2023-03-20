@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #include "../headers/Cat.hpp"
 
@@ -21,6 +19,7 @@ Cat::Cat(const Cat &original) : Animal(original)
 {
 	std::cout << "Cat class copy operator called." << std::endl;
 	this->type = original.type;
+	this->brain = original.brain;
 }
 
 Cat &Cat::operator=(const Cat &other)
@@ -37,3 +36,16 @@ void Cat::makeSound() const
 	std::cout << "Meow" << std::endl;
 }
 
+std::string Cat::get_idea(unsigned int index) const
+{
+	if (this->brain->get_max_ideas() < index)
+		return "";
+	return this->brain->ideas[index];
+}
+
+void Cat::set_idea(unsigned int index, std::string str)
+{
+	if (this->brain->get_max_ideas() < index)
+		return ;
+	this->brain->ideas[index] = str;
+}

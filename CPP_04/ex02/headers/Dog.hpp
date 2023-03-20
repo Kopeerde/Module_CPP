@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef DOG_HPP
 #define DOG_HPP
@@ -19,6 +17,12 @@ class Dog : public Animal
 		Dog(const Dog &original);
 		Dog& operator=(const Dog&);
 		void makeSound() const;
+
+		// Getter
+		std::string get_idea(unsigned int index) const;
+
+		// Setter
+		void set_idea(unsigned int index, std::string str);
 };
 
 

@@ -25,14 +25,7 @@ Brain &Brain::operator=(const Brain &other)
 	return *this;
 }
 
-void Brain::set_idea(int index, std::string str)
+unsigned int Brain::get_max_ideas() const
 {
-
-}
-
-std::string Brain::get_idea(int index) const
-{
-	if (0 < index and index < 99)
-		return this->ideas[index];
-	return "";
+	return this->max_ideas;
 }

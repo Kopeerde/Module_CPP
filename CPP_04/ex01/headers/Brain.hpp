@@ -8,20 +8,18 @@
 class Brain
 {
 	private:
-		std::string ideas[100];
+		static const unsigned int max_ideas = 100;
 
 	public:
+		std::string ideas[max_ideas];
+
 		Brain();
 		~Brain();
 		Brain(const Brain &original);
 		Brain& operator=(const Brain&);
 
-		// Setter
-		void set_idea(int index, std::string str);
-
 		// Getter
-		std::string get_idea(int index) const;
-
+		unsigned int get_max_ideas() const;
 };
 
 

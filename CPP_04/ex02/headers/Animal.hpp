@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
@@ -11,24 +9,25 @@
 class Animal
 {
 	protected:
-		Animal();
-		virtual ~Animal();
-		Animal(const Animal &original);
-		Animal& operator=(const Animal&);
-
 		std::string type;
 
 	private:
 
 
 	public:
-		
-
-		Brain brain;
+		Animal();
+		virtual ~Animal();
+		Animal(const Animal &original);
+		Animal& operator=(const Animal&);
 		
 		virtual void makeSound() const;
-		
+
+		// Getter
 		std::string getType() const;
+		virtual std::string get_idea(unsigned int index) const = 0;
+
+		// Setter
+		virtual void set_idea(unsigned int index, std::string str) = 0;
 };
 
 

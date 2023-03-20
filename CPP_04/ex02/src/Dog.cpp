@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #include "../headers/Dog.hpp"
 
@@ -14,13 +12,14 @@ Dog::Dog() : Animal()
 Dog::~Dog()
 {
 	std::cout << "Dog class has been destroyed." << std::endl;
-	delete brain;
+	delete this->brain;
 }
 
 Dog::Dog(const Dog &original) : Animal(original)
 {
 	std::cout << "Dog class copy has been called." << std::endl;
 	this->type = original.type;
+	this->brain = original.brain;
 }
 
 Dog &Dog::operator=(const Dog &other)
@@ -35,4 +34,18 @@ Dog &Dog::operator=(const Dog &other)
 void Dog::makeSound() const
 {
 	std::cout << "Bark" << std::endl;
+}
+
+std::string Dog::get_idea(unsigned int index) const
+{
+	if (this->brain->get_max_ideas() < index)
+		return "";
+	return this->brain->ideas[index];
+}
+
+void Dog::set_idea(unsigned int index, std::string str)
+{
+	if (this->brain->get_max_ideas() < index)
+		return ;
+	this->brain->ideas[index] = str;
 }

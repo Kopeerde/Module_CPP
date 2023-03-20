@@ -16,9 +16,13 @@ class Dog : public Animal
 		virtual ~Dog();
 		Dog(const Dog &original);
 		Dog& operator=(const Dog&);
-
-		// Fonctions membre
 		void makeSound() const;
+
+		// Getter
+		std::string get_idea(unsigned int index) const;
+
+		// Setter
+		void set_idea(unsigned int index, std::string str);
 };
 
 

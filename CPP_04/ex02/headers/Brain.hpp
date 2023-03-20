@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/17/23.
-//
+
 
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
@@ -10,15 +8,18 @@
 class Brain
 {
 	private:
-		
+		static const unsigned int max_ideas = 100;
 
 	public:
+		std::string ideas[max_ideas];
+
 		Brain();
 		~Brain();
 		Brain(const Brain &original);
 		Brain& operator=(const Brain&);
 
-		std::string ideas[100];
+		// Getter
+		unsigned int get_max_ideas() const;
 };
 
 

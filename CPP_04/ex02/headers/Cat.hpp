@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/16/23.
-//
+
 
 #ifndef CAT_HPP
 #define CAT_HPP
@@ -19,6 +17,12 @@ class Cat : public Animal
 		Cat(const Cat &original);
 		Cat& operator=(const Cat&);
 		void makeSound() const;
+
+		// Getter
+		std::string get_idea(unsigned int index) const;
+
+		// Setter
+		void set_idea(unsigned int index, std::string str);
 };
 
 

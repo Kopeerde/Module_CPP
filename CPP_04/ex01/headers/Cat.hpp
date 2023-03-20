@@ -16,9 +16,13 @@ class Cat : public Animal
 		virtual ~Cat();
 		Cat(const Cat &original);
 		Cat& operator=(const Cat&);
-
-		// Fonctions membre
 		void makeSound() const;
+
+		// Getter
+		std::string get_idea(unsigned int index) const;
+
+		// Setter
+		void set_idea(unsigned int index, std::string str);
 };
 
 

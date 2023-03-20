@@ -1,6 +1,4 @@
-//
-// Created by kmendes- on 2/17/23.
-//
+
 
 #include "../headers/Brain.hpp"
 
@@ -25,4 +23,9 @@ Brain &Brain::operator=(const Brain &other)
 	if (this == &other)
 		return *this;
 	return *this;
+}
+
+unsigned int Brain::get_max_ideas() const
+{
+	return this->max_ideas;
 }

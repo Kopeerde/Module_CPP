@@ -5,28 +5,33 @@
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	Animal *list[10];
-	for (int index = 0; index < 10; index++)
+	const unsigned int nbr_animals = 10;
+
+	const Dog *j = new Dog();
+	const Cat *i = new Cat();
+	Animal *list[nbr_animals];
+
+	for (unsigned int index = 0; index < nbr_animals; index++)
 	{
-		if (index < 5)
+		if (index < (nbr_animals / 2))
 			list[index] = new Dog;
 		else
 			list[index] = new Cat;
 	}
 
-	list[0]->brain.ideas[0] = "0";
-	list[0]->brain.ideas[1] = "1";
-	list[1]->brain.ideas[0] = "test";
-	list[1]->brain.ideas[1] = "wot?";
+	list[0]->set_idea(0, "0");
+	list[0]->set_idea(1, "1");
+	list[1]->set_idea(0, "test");
+	list[1]->set_idea(1, "wot?");
 
-	std::cout << list[0]->brain.ideas[0] << std::endl;
-	std::cout << list[0]->brain.ideas[1] << std::endl;
-	std::cout << list[1]->brain.ideas[0] << std::endl;
-	std::cout << list[1]->brain.ideas[1] << std::endl;
+	std::cout << "\n" << std::endl;
 
+	std::cout << list[0]->get_idea(0) << std::endl;
+	std::cout << list[0]->get_idea(1) << std::endl;
+	std::cout << list[1]->get_idea(0) << std::endl;
+	std::cout << list[1]->get_idea(1) << std::endl;
 
+	std::cout << "\n" << std::endl;
 
 
 	delete j;
