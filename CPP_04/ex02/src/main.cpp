@@ -5,40 +5,25 @@
 
 int main()
 {
-	const unsigned int nbr_animals = 10;
-
-	const Dog *j = new Dog();
-	const Cat *i = new Cat();
-	Animal *list[nbr_animals];
-
-	for (unsigned int index = 0; index < nbr_animals; index++)
 	{
-		if (index < (nbr_animals / 2))
-			list[index] = new Dog;
-		else
-			list[index] = new Cat;
+//		Animal animal_on_stack = Animal();
+//		Animal *animal_on_heap = new Animal();
+
+//		delete animal_on_heap;
 	}
 
-	list[0]->set_idea(0, "0");
-	list[0]->set_idea(1, "1");
-	list[1]->set_idea(0, "test");
-	list[1]->set_idea(1, "wot?");
+	{
+		Dog dog = Dog();
+		Cat cat = Cat();
+	}
 
-	std::cout << "\n" << std::endl;
+	{
+		Dog *dog = new Dog();
+		Cat *cat = new Cat();
 
-	std::cout << list[0]->get_idea(0) << std::endl;
-	std::cout << list[0]->get_idea(1) << std::endl;
-	std::cout << list[1]->get_idea(0) << std::endl;
-	std::cout << list[1]->get_idea(1) << std::endl;
-
-	std::cout << "\n" << std::endl;
-
-
-	delete j;
-	delete i;
-	for (int index = 0; index < 10; index ++)
-		delete list[index];
-
+		delete dog;
+		delete cat;
+	}
 
 	return 0;
 }

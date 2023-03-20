@@ -16,7 +16,7 @@ class Animal
 
 	public:
 		Animal();
-		virtual ~Animal();
+		virtual ~Animal() = 0;
 		Animal(const Animal &original);
 		Animal& operator=(const Animal&);
 		
