@@ -18,6 +18,10 @@ class Cure : public AMateria
 		~Cure();
 		Cure(const Cure &original);
 		Cure& operator=(const Cure &);
+
+		Cure* clone() const;
+
+		void use(ICharacter& target);
 };
 
 #endif

@@ -26,3 +26,15 @@ Cure &Cure::operator=(const Cure &other)
 	this->type = other.type;
 	return *this;
 }
+
+Cure *Cure::clone() const
+{
+	Cure* copy = new Cure(this);
+	return copy;
+}
+
+void Cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << "<name>" << "'s wounds *" << std::endl;
+	AMateria::use(target);
+}
