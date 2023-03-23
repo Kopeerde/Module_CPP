@@ -15,13 +15,14 @@ Brain::~Brain()
 Brain::Brain(const Brain &original)
 {
 	std::cout << "Brain copy constructor called." << std::endl;
-	(void) original;
+	std::copy(original.ideas->begin(), original.ideas->end() + 1, this->ideas);
 }
 
 Brain &Brain::operator=(const Brain &other)
 {
 	if (this == &other)
 		return *this;
+	std::copy(other.ideas->begin(), other.ideas->end() + 1, this->ideas);
 	return *this;
 }
 

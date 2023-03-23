@@ -19,7 +19,7 @@ Cat::Cat(const Cat &original) : Animal(original)
 {
 	std::cout << "Cat class copy operator called." << std::endl;
 	this->type = original.type;
-	this->brain = original.brain;
+	this->brain = new Brain(*original.brain);
 }
 
 Cat &Cat::operator=(const Cat &other)
@@ -28,6 +28,7 @@ Cat &Cat::operator=(const Cat &other)
 	if (this == &other)
 		return *this;
 	this->type = other.type;
+	this->brain = new Brain(*other.brain);
 	return *this;
 }
 

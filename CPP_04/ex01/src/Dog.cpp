@@ -19,7 +19,7 @@ Dog::Dog(const Dog &original) : Animal(original)
 {
 	std::cout << "Dog class copy has been called." << std::endl;
 	this->type = original.type;
-	this->brain = original.brain;
+	this->brain = new Brain(*original.brain);
 }
 
 Dog &Dog::operator=(const Dog &other)
@@ -28,6 +28,7 @@ Dog &Dog::operator=(const Dog &other)
 	if (this == &other)
 		return *this;
 	this->type = other.type;
+	this->brain = new Brain(*other.brain);
 	return *this;
 }
 

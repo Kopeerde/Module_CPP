@@ -24,6 +24,19 @@ int main()
 	list[1]->set_idea(0, "test");
 	list[1]->set_idea(1, "wot?");
 
+	{
+		Dog *temp_1 = new Dog();
+		Dog *temp_2 = new Dog(*temp_1);
+
+		temp_1->set_idea(0, "test");
+		temp_2->set_idea(0, "argh");
+
+		std::cout << "\ntemp_1 : " << temp_1->get_idea(0) << " temp_2 : " << temp_2->get_idea(0) << "\n" << std::endl;
+
+		delete temp_1;
+		delete temp_2;
+	}
+
 	std::cout << "\n" << std::endl;
 
 	std::cout << list[0]->get_idea(0) << std::endl;
