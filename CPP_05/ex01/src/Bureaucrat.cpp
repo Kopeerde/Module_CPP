@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #include "../headers/Bureaucrat.hpp"
 
@@ -76,12 +73,15 @@ std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 	return stream;
 }
 
-void Bureaucrat::signForm(const Form& form) const
+void Bureaucrat::signForm(Form& form) const
 {
-	if (form.get_is_signed() == 0)
-		std::cout << this->name + "couldn't sign " + form.get_name() + " because " + "TODO <reason>" << std::endl;
+	if (form.get_is_signed() == 0 && form.get_sign_grade() > this->grade)
+		std::cout << this->name + "couldn't sign " + form.get_name() + " because bureaucrat grade's too low." << std::endl;
 	else
+	{
+		form.beSigned(*this);
 		std::cout << this->name + " signed " + form.get_name() << std::endl;
+	}
 }
 
 

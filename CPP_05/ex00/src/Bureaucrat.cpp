@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #include "../headers/Bureaucrat.hpp"
 
@@ -69,10 +66,10 @@ void Bureaucrat::decrement_grade()
 		this->grade++;
 }
 
-// TODO
-Bureaucrat &Bureaucrat::operator<<(const Bureaucrat &)
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 {
-	return *this;
+	std::cout << self.getName() << ", bureaucrat grade" << self.getGrade() << std::endl;
+	return stream;
 }
 
 

@@ -1,68 +1,74 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #include "../headers/Bureaucrat.hpp"
 #include <iostream>
 
-
-
 int main()
 {
-
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 151);
-		std::cout << "ligne non affichee." << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
-
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 0);
-		std::cout << "ligne non affichee." << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
-
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 1);
-		std::cout << "ligne affichee." << std::endl;
-		std::cout << test << std::endl;
-		test.decrement_grade();
-		std::cout << test << std::endl;
-		test.increment_grade();
-		std::cout << test << std::endl;
-
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
+	Bureaucrat too_low = Bureaucrat("nope", 150);
+	Bureaucrat John = Bureaucrat("John", 15);
 
 	Form formulaire = Form("test", 15, 15);
 	std::cout << formulaire << std::endl;
+	try
+	{
+		formulaire.beSigned(too_low);
+	}
+	catch (Form::GradeTooLowException){}
+	std::cout << formulaire << std::endl;
+	formulaire.beSigned(John);
+	std::cout << formulaire << std::endl;
 
 
+	try
+	{
+		Form test = Form("test", 0, 15);
+	}
+	catch (Form::GradeTooLowException)
+	{
 
+	}
+	catch (Form::GradeTooHighException)
+	{
+
+	}
+
+	try
+	{
+		Form test = Form("test", 151, 15);
+	}
+	catch (Form::GradeTooLowException)
+	{
+
+	}
+	catch (Form::GradeTooHighException)
+	{
+
+	}
+
+	try
+	{
+		Form test = Form("test", 1, 0);
+	}
+	catch (Form::GradeTooLowException)
+	{
+
+	}
+	catch (Form::GradeTooHighException)
+	{
+
+	}
+	try
+	{
+		Form test = Form("test", 1, 151);
+	}
+	catch (Form::GradeTooLowException)
+	{
+
+	}
+	catch (Form::GradeTooHighException)
+	{
+
+	}
 
 	return 0;
 }

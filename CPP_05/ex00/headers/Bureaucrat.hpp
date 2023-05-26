@@ -1,5 +1,4 @@
 
-
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
@@ -9,7 +8,7 @@ class Bureaucrat
 {
 	private:
 		std::string const name;
-		short int grade;
+		short grade;
 
 	public:
 		Bureaucrat(const std::string name, short int grade);
@@ -36,6 +35,8 @@ class Bureaucrat
 		class GradeTooLowException : public std::exception {};
 
 };
+
+std::ostream& operator<<(std::ostream& stream, const Bureaucrat&);
 
 
 #endif //BUREAUCRAT_HPP

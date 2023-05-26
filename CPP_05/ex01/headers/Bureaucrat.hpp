@@ -1,5 +1,4 @@
 
-
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
@@ -33,7 +32,7 @@ class Bureaucrat
 		// Member Functions
 		void increment_grade();
 		void decrement_grade();
-		void signForm(const Form& form) const; // TODO
+		void signForm(Form& form) const;
 
 		class GradeTooHighException : public std::exception {};
 

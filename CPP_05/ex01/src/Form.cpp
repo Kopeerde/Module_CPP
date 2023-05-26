@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #include "../headers/Form.hpp"
 
@@ -29,7 +26,6 @@ void Form::beSigned(const Bureaucrat bureaucrat)
 	if (bureaucrat.getGrade() <= this->sign_grade)
 	{
 		this->is_signed = 1;
-		bureaucrat.signForm(*this);
 	}
 	else
 		throw Form::GradeTooLowException();
