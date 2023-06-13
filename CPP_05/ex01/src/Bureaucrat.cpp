@@ -3,7 +3,7 @@
 
 Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name)
 {
-	std::cout << "Base class constructor for Bureaucrat called" << std::endl;
+	std::cout << name + " : Base class constructor for Bureaucrat called." << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (150 < grade)
@@ -14,7 +14,7 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Base class Bureaucrat destructor called." << std::endl;
+	std::cout << this->getName() + " : Base class Bureaucrat destructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &original)
@@ -77,6 +77,8 @@ void Bureaucrat::signForm(Form& form) const
 {
 	if (form.get_is_signed() == 0 && form.get_sign_grade() > this->grade)
 		std::cout << this->name + "couldn't sign " + form.get_name() + " because bureaucrat grade's too low." << std::endl;
+	else if (form.get_is_signed() == true)
+		std::cout << this->name + " couldn't sign " + form.get_name() + " because it has already been signed previously." << std::endl;
 	else
 	{
 		form.beSigned(*this);

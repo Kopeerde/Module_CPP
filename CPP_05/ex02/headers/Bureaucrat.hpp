@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
@@ -35,8 +32,8 @@ class Bureaucrat
 		// Member Functions
 		void increment_grade();
 		void decrement_grade();
-		void signForm(const AForm& form) const;
-		void execute(Bureaucrat const & executor) const;
+		void signForm(AForm& form) const;
+		void executeForm(AForm const & form);
 
 		class GradeTooHighException : public std::exception {};
 

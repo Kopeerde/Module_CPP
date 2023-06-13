@@ -4,19 +4,24 @@
 
 int main()
 {
-	Bureaucrat too_low = Bureaucrat("nope", 150);
+	Bureaucrat intern = Bureaucrat("nope", 150);
 	Bureaucrat John = Bureaucrat("John", 15);
 
 	Form formulaire = Form("test", 15, 15);
+	Form form_2 = Form("test2", 15, 15);
 	std::cout << formulaire << std::endl;
 	try
 	{
-		formulaire.beSigned(too_low);
+		formulaire.beSigned(intern);
 	}
-	catch (Form::GradeTooLowException){}
+	catch (Form::GradeTooLowException)
+	{}
 	std::cout << formulaire << std::endl;
 	formulaire.beSigned(John);
 	std::cout << formulaire << std::endl;
+
+	John.signForm(form_2);
+	John.signForm(form_2);
 
 
 	try
@@ -29,7 +34,7 @@ int main()
 	}
 	catch (Form::GradeTooHighException)
 	{
-
+		std::cout << "Could not create form, sign grade too high." << std::endl;
 	}
 
 	try
@@ -38,6 +43,7 @@ int main()
 	}
 	catch (Form::GradeTooLowException)
 	{
+		std::cout << "Could not create form, sign grade too low." << std::endl;
 
 	}
 	catch (Form::GradeTooHighException)
@@ -51,11 +57,10 @@ int main()
 	}
 	catch (Form::GradeTooLowException)
 	{
-
 	}
 	catch (Form::GradeTooHighException)
 	{
-
+		std::cout << "Could not create form, exec grade too high." << std::endl;
 	}
 	try
 	{
@@ -63,7 +68,7 @@ int main()
 	}
 	catch (Form::GradeTooLowException)
 	{
-
+		std::cout << "Could not create form, exec grade too low." << std::endl;
 	}
 	catch (Form::GradeTooHighException)
 	{

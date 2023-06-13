@@ -31,7 +31,7 @@ class Form
 		short int get_exec_grade() const;
 
 		// Setters
-		void beSigned(const Bureaucrat bureaucrat);
+		void beSigned(const Bureaucrat &bureaucrat);
 
 		// Exceptions
 		class GradeTooHighException : public std::exception {};

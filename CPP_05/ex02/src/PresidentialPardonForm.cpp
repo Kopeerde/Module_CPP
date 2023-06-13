@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #include "../headers/PresidentialPardonForm.hpp"
 
@@ -12,4 +9,9 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string name) : AForm(n
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "Default class destructor PresidentialPardonForm called." << std::endl;
+}
+
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	(void) executor;
 }

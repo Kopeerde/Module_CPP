@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #include "../headers/ShrubberyCreationForm.hpp"
 
@@ -13,4 +10,37 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string name) : AForm(nam
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	std::cout << "Default class destructor ShrubberyCreationForm destructor called." << std::endl;
+}
+
+// TODO
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	if (this->get_is_signed() == false)
+	{
+
+	}
+	else if (this->get_exec_grade() < executor.getGrade())
+	{
+
+	}
+	else
+	{
+		std::ofstream outfile ("<target>");
+
+		outfile << "          &&& &&  & &&\n";
+		outfile << "      && &\/&\|& ()|/ @, &&\n";
+		outfile << "      &\/(/&/&||/& /_/)_&/_&\n";
+		outfile << "   &() &\/&|()|/&\/ '%\" & ()\n";
+		outfile << "  &_\_&&_\ |& |&&/&__%_/_& &&\n";
+		outfile << "&&   && & &| &| /& & % ()& /&&\n";
+		outfile << " ()&_---()&\&\|&&-&&--%---()~\n";
+		outfile << "     &&     \|||\n";
+		outfile << "             |||\n";
+		outfile << "             |||\n";
+		outfile << "             |||\n";
+		outfile << "       , -=-~  .-^- _\n";
+		outfile << "              `\n";
+
+		outfile.close();
+	}
 }

@@ -3,7 +3,7 @@
 
 Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name)
 {
-	std::cout << "Base class constructor for Bureaucrat called" << std::endl;
+	std::cout << name << " : Base class constructor for Bureaucrat called" << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (150 < grade)
@@ -14,7 +14,7 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Base class Bureaucrat destructor called." << std::endl;
+	std::cout << this->getName() << " : Base class Bureaucrat destructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &original)
@@ -68,7 +68,7 @@ void Bureaucrat::decrement_grade()
 
 std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 {
-	std::cout << self.getName() << ", bureaucrat grade" << self.getGrade() << std::endl;
+	std::cout << self.getName() << ", bureaucrat grade : " << self.getGrade() << std::endl;
 	return stream;
 }
 

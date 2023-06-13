@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #include "../headers/Bureaucrat.hpp"
 #include "../headers/PresidentialPardonForm.hpp"
@@ -15,55 +12,13 @@
 int main()
 {
 
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 151);
-		std::cout << "ligne non affichee." << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
+	Bureaucrat intern = Bureaucrat("intern", 150);
+	Bureaucrat John = Bureaucrat("John", 5);
 
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 0);
-		std::cout << "ligne non affichee." << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
-
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 1);
-		std::cout << "ligne affichee." << std::endl;
-		std::cout << test << std::endl;
-		test.decrement_grade();
-		std::cout << test << std::endl;
-		test.increment_grade();
-		std::cout << test << std::endl;
-
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
-
-	ShrubberyCreationForm shrubs("test");
+	RobotomyRequestForm robotomi("test_robotomi");
+	robotomi.beSigned(John);
+	std::cout << robotomi << std::endl;
+	robotomi.execute(John);
 
 
 

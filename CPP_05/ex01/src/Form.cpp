@@ -3,7 +3,7 @@
 
 Form::Form(const std::string name, short sign_grade, short exec_grade) : name(name), sign_grade(sign_grade), exec_grade(exec_grade)
 {
-	std::cout << "Default constructor for class Form called." << std::endl;
+	std::cout << name + " : Default constructor for class Form called." << std::endl;
 	if (sign_grade < 1 || exec_grade < 1)
 		throw Form::GradeTooHighException();
 	else if (150 < sign_grade || 150 < exec_grade)
@@ -13,7 +13,7 @@ Form::Form(const std::string name, short sign_grade, short exec_grade) : name(na
 
 Form::~Form()
 {
-	std::cout << "Default destructor for class Form called." << std::endl;
+	std::cout << this->name + " : Default destructor for class Form called." << std::endl;
 }
 
 Form::Form(const Form &original) : name(original.name), sign_grade(original.sign_grade), exec_grade(original.exec_grade)
@@ -21,7 +21,7 @@ Form::Form(const Form &original) : name(original.name), sign_grade(original.sign
 	this->is_signed = original.is_signed;
 }
 
-void Form::beSigned(const Bureaucrat bureaucrat)
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() <= this->sign_grade)
 	{
@@ -62,6 +62,6 @@ short int Form::get_exec_grade() const
 
 std::ostream& operator<<(std::ostream& stream, const Form&self)
 {
-	stream << self.get_name() << ", grade required signature " << self.get_sign_grade() << ", grade required execution " << self.get_exec_grade() << ", is signed " << self.get_is_signed();
+	stream << self.get_name() + ", grade required signature " << self.get_sign_grade() << ", grade required execution " << self.get_exec_grade() << ", is signed " << self.get_is_signed();
 	return stream;
 }
