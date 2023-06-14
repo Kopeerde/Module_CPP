@@ -39,6 +39,7 @@ class AForm
 		// Exceptions
 		class GradeTooHighException : public std::exception {};
 		class GradeTooLowException : public std::exception {};
+		class NotSignedException : public std::exception {};
 
 };
 

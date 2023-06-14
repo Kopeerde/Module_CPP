@@ -12,29 +12,28 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "Default class destructor ShrubberyCreationForm destructor called." << std::endl;
 }
 
-// TODO
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (this->get_is_signed() == false)
 	{
-
+		throw AForm::NotSignedException();
 	}
 	else if (this->get_exec_grade() < executor.getGrade())
 	{
-
+		throw AForm::GradeTooLowException();
 	}
 	else
 	{
-		std::ofstream outfile ("<target>");
+		std::ofstream outfile ((this->get_name() + "_shrubbery").c_str());
 
 		outfile << "          &&& &&  & &&\n";
-		outfile << "      && &\/&\|& ()|/ @, &&\n";
-		outfile << "      &\/(/&/&||/& /_/)_&/_&\n";
-		outfile << "   &() &\/&|()|/&\/ '%\" & ()\n";
-		outfile << "  &_\_&&_\ |& |&&/&__%_/_& &&\n";
+		outfile << "      && &\\/&\\|& ()|/ @, &&\n";
+		outfile << "      &\\/(/&/&||/& /_/)_&/_&\n";
+		outfile << "   &() &\\/&|()|/&\\/ '%\" & ()\n";
+		outfile << "  &_\\_&&_\\ |& |&&/&__%_/_& &&\n";
 		outfile << "&&   && & &| &| /& & % ()& /&&\n";
-		outfile << " ()&_---()&\&\|&&-&&--%---()~\n";
-		outfile << "     &&     \|||\n";
+		outfile << " ()&_---()&\\&\\|&&-&&--%---()~\n";
+		outfile << "     &&     \\|||\n";
 		outfile << "             |||\n";
 		outfile << "             |||\n";
 		outfile << "             |||\n";

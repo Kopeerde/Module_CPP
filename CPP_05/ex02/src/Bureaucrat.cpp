@@ -75,10 +75,8 @@ std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 
 void Bureaucrat::signForm(AForm& form) const
 {
-	if (form.get_is_signed() == 0)// TODO
-		std::cout << this->name + "couldn't sign " + form.get_name() + " because " + "TODO <reason>" << std::endl;
-	else if (form.get_sign_grade() < this->getGrade())
-		std::cout << this->name + "couldn't sign " + form.get_name() + " because his grade is too low." << std::endl;
+	if (form.get_sign_grade() < this->getGrade())
+		throw Bureaucrat::GradeTooLowException();
 	else
 	{
 		form.beSigned(*this);
@@ -86,11 +84,9 @@ void Bureaucrat::signForm(AForm& form) const
 	}
 }
 
-
-// TODO
 void Bureaucrat::executeForm(AForm const & form)
 {
-	(void) form;
+	form.execute(*this);
 }
 
 

@@ -16,10 +16,21 @@ int main()
 	Bureaucrat John = Bureaucrat("John", 5);
 
 	RobotomyRequestForm robotomi("test_robotomi");
+	PresidentialPardonForm pardon("target");
+	ShrubberyCreationForm shrubs("shrubby");
+
 	robotomi.beSigned(John);
 	std::cout << robotomi << std::endl;
 	robotomi.execute(John);
+	John.executeForm(robotomi);
 
+	John.signForm(pardon);
+	pardon.execute(John);
+	John.executeForm(pardon);
+
+	John.signForm(shrubs);
+	shrubs.execute(John);
+	John.executeForm(shrubs);
 
 
 	return 0;
