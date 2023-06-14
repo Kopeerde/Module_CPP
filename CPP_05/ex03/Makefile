@@ -10,7 +10,7 @@ FLAG = -MMD -Wall -Werror -Wextra -std=c++98 -g3
 
 DIR_HEADERS = headers/
 SRC_PATH = src/
-SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRC = main.cpp Bureaucrat.cpp Intern.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJ_PATH	=	obj/
 OBJ		=	$(SRC:.cpp=.o)
 OBJS	=	$(addprefix $(OBJ_PATH), $(OBJ))

@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
@@ -20,6 +17,8 @@ class RobotomyRequestForm : public AForm
 	public:
 		RobotomyRequestForm(const std::string name);
 		~RobotomyRequestForm();
+		
+		void execute(Bureaucrat const & executor) const;
 
 };
 

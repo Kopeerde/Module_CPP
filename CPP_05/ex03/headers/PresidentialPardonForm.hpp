@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
@@ -19,6 +16,8 @@ class PresidentialPardonForm : public AForm
 	public:
 		PresidentialPardonForm(const std::string name);
 		~PresidentialPardonForm();
+
+		void execute(Bureaucrat const & executor) const;
 
 };
 

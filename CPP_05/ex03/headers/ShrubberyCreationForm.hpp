@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
@@ -8,6 +5,8 @@
 #include <iostream>
 
 #include "./AForm.hpp"
+#include <iostream>
+#include <fstream>
 
 class AForm;
 
@@ -19,6 +18,8 @@ class ShrubberyCreationForm : public AForm
 	public:
 		ShrubberyCreationForm(const std::string name);
 		~ShrubberyCreationForm();
+
+		void execute(Bureaucrat const & executor) const;
 
 };
 

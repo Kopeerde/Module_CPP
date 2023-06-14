@@ -1,12 +1,9 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #include "../headers/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name)
 {
-	std::cout << "Base class constructor for Bureaucrat called" << std::endl;
+	std::cout << name << " : Base class constructor for Bureaucrat called" << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (150 < grade)
@@ -17,7 +14,7 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Base class Bureaucrat destructor called." << std::endl;
+	std::cout << this->getName() << " : Base class Bureaucrat destructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &original)
@@ -76,17 +73,21 @@ std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 	return stream;
 }
 
-void Bureaucrat::signForm(const AForm& form) const
+void Bureaucrat::signForm(AForm& form) const
 {
-	if (form.get_is_signed() == 0)
-		std::cout << this->name + "couldn't sign " + form.get_name() + " because " + "TODO <reason>" << std::endl;
+	if (form.get_sign_grade() < this->getGrade())
+		throw Bureaucrat::GradeTooLowException();
 	else
+	{
+		form.beSigned(*this);
 		std::cout << this->name + " signed " + form.get_name() << std::endl;
+	}
 }
 
-
-
-
+void Bureaucrat::executeForm(AForm const & form)
+{
+	form.execute(*this);
+}
 
 
 

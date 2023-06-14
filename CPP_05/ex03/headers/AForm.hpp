@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
@@ -20,7 +17,7 @@ class AForm
 
 	public:
 		AForm(std::string const name, short int sign_grade, short int exec_grade);
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm &original);
 
 		// Overload
@@ -34,11 +31,15 @@ class AForm
 		short int get_exec_grade() const;
 
 		// Setters
-		void beSigned(const Bureaucrat bureaucrat);
+		void beSigned(const Bureaucrat &bureaucrat);
+
+		// Member functions
+		virtual void execute(Bureaucrat const & executor) const = 0;
 
 		// Exceptions
 		class GradeTooHighException : public std::exception {};
 		class GradeTooLowException : public std::exception {};
+		class NotSignedException : public std::exception {};
 
 };
 

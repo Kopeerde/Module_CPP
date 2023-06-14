@@ -1,8 +1,6 @@
-//
-// Created by kmendes- on 2/20/23.
-//
 
 #include "../headers/Bureaucrat.hpp"
+#include "../headers/Intern.hpp"
 #include "../headers/PresidentialPardonForm.hpp"
 #include "../headers/RobotomyRequestForm.hpp"
 #include "../headers/ShrubberyCreationForm.hpp"
@@ -15,56 +13,29 @@
 int main()
 {
 
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 151);
-		std::cout << "ligne non affichee." << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
+	Intern nobody;
+	Bureaucrat John = Bureaucrat("John", 1);
+	AForm *rrf;
+	AForm *rrf2;
+	AForm *rrf3;
 
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 0);
-		std::cout << "ligne non affichee." << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
 
-	try
-	{
-		Bureaucrat test = Bureaucrat("test", 1);
-		std::cout << "ligne affichee." << std::endl;
-		std::cout << test << std::endl;
-		test.decrement_grade();
-		std::cout << test << std::endl;
-		test.increment_grade();
-		std::cout << test << std::endl;
+	rrf = nobody.makeForm("robotomy", "test1");
+	rrf2 = nobody.makeForm("shrubs", "test2");
+	rrf3 = nobody.makeForm("pardon", "test3");
 
-	}
-	catch (Bureaucrat::GradeTooHighException)
-	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
+	John.signForm(*rrf);
+	John.signForm(*rrf2);
+	John.signForm(*rrf3);
 
-	ShrubberyCreationForm shrubs("test");
+	rrf->execute(John);
+	rrf2->execute(John);
+	rrf3->execute(John);
 
+
+	delete rrf;
+	delete rrf2;
+	delete rrf3;
 
 
 	return 0;
