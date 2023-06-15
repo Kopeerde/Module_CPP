@@ -6,7 +6,7 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name)
 	std::cout << name << " : Base class constructor for Bureaucrat called" << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	else if (150 < grade)
+	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->grade = grade;
@@ -74,10 +74,16 @@ std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 
 
 
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade too high.";
+}
 
 
-
-
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade too low.";
+}
 
 
 

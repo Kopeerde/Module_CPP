@@ -53,5 +53,6 @@ AForm *Intern::makeForm(std::string form_name, std::string target)
 			}
 		}
 	}
+	std::cout << "The form requested doesn't exist." << std::endl;
 	return NULL;
 }

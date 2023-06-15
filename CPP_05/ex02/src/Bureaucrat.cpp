@@ -73,6 +73,22 @@ std::ostream& operator<<(std::ostream& stream, const Bureaucrat& self)
 	return stream;
 }
 
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade too high.";
+}
+
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade too low.";
+}
+
+const char *Bureaucrat::NotSignedException::what() const throw()
+{
+	return "The form isn't signed.";
+}
+
 void Bureaucrat::signForm(AForm& form) const
 {
 	if (form.get_sign_grade() < this->getGrade())

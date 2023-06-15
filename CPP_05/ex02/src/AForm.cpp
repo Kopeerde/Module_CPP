@@ -70,3 +70,19 @@ void execute(Bureaucrat const & executor)
 {
 	(void) executor;
 }
+
+const char *AForm::GradeTooHighException::what() const throw()
+{
+	return "Grade too high.";
+}
+
+
+const char *AForm::GradeTooLowException::what() const throw()
+{
+	return "Grade too low.";
+}
+
+const char *AForm::NotSignedException::what() const throw()
+{
+	return "The form isn't signed.";
+}

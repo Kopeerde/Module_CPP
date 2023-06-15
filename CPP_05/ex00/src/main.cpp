@@ -12,13 +12,13 @@ int main()
 		Bureaucrat test = Bureaucrat("test", 151);
 		std::cout << "ligne non affichee." << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException)
+	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cout << "oops" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException)
+	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		std::cout << "arf" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	// Test creation Bureaucrate grade trop haut
@@ -27,13 +27,9 @@ int main()
 		Bureaucrat test = Bureaucrat("test", 0);
 		std::cout << "ligne non affichee." << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException)
+	catch (std::exception& e)
 	{
-		std::cout << "oops" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	// Test creation grade ok
@@ -42,14 +38,11 @@ int main()
 		Bureaucrat test = Bureaucrat("test", 1);
 		std::cout << test << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException)
+	catch (std::exception& e)
 	{
-		std::cout << "oops" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
+
 
 	// Test creation grade ok mais augmentation impossible
 	try
@@ -58,14 +51,11 @@ int main()
 		std::cout << test << std::endl;
 		test.increment_grade();
 	}
-	catch (Bureaucrat::GradeTooHighException)
+	catch (std::exception& e)
 	{
-		std::cout << "couldn't make grade higher" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "arf" << std::endl;
-	}
+
 
 	// Test creation Bureaucrate grade ok mais retrograder impossible
 	try
@@ -74,14 +64,11 @@ int main()
 		std::cout << test << std::endl;
 		test.decrement_grade();
 	}
-	catch (Bureaucrat::GradeTooHighException)
+	catch (std::exception& e)
 	{
-		std::cout << "oops" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException)
-	{
-		std::cout << "couldn't make grade lower" << std::endl;
-	}
+
 
 	return 0;
 }

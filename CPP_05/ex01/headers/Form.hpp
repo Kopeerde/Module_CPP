@@ -34,8 +34,17 @@ class Form
 		void beSigned(const Bureaucrat &bureaucrat);
 
 		// Exceptions
-		class GradeTooHighException : public std::exception {};
-		class GradeTooLowException : public std::exception {};
+		class GradeTooHighException : public std::exception
+		{
+			public :
+				virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
 };
 

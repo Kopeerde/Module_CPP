@@ -90,8 +90,21 @@ void Bureaucrat::executeForm(AForm const & form)
 }
 
 
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade too high.";
+}
 
 
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade too low.";
+}
+
+const char *Bureaucrat::NotSignedException::what() const throw()
+{
+	return "The form isn't signed.";
+}
 
 
 

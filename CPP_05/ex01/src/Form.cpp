@@ -65,3 +65,15 @@ std::ostream& operator<<(std::ostream& stream, const Form&self)
 	stream << self.get_name() + ", grade required signature " << self.get_sign_grade() << ", grade required execution " << self.get_exec_grade() << ", is signed " << self.get_is_signed();
 	return stream;
 }
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return "Grade too high.";
+}
+
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return "Grade too low.";
+}
+
