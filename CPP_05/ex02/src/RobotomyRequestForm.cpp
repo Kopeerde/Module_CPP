@@ -13,10 +13,12 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	std::cout << "*Drilling noises*" << std::endl;
-	
-	if (this->get_is_signed() == true && executor.getGrade() <= this->get_exec_grade())
+	if (this->get_is_signed() == 0)
+		throw AForm::NotSignedException();
+	else if (executor.getGrade() <= this->get_exec_grade())
 	{
+		std::cout << "*Drilling noises*" << std::endl;
+
 		srand(time(NULL));
 		if ((rand() % 100) >= 50)
 			std::cout << this->get_name() + " has been robotomized." << std::endl;
@@ -24,7 +26,22 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 			std::cout << "*clonk* " << this->get_name() + " failed to be robotomized." << std::endl;
 	}
 	else
-	{
-		throw AForm::NotSignedException();
-	}
+		throw AForm::GradeTooLowException();
 }
+
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &original) : AForm(original)
+{}
+
+RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+	if (*this = other)
+		return *this;
+	return *this;
+}
+
+
+
+
+
+

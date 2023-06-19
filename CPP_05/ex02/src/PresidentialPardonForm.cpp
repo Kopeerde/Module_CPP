@@ -20,3 +20,13 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	else
 		std::cout << this->get_name() + " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &original) : Form(original)
+{}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+{
+	if (this == other)
+		return *this;
+	return *this;
+}

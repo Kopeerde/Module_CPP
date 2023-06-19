@@ -18,7 +18,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	{
 		throw AForm::NotSignedException();
 	}
-	else if (this->get_exec_grade() < executor.getGrade())
+	else if (executor.getGrade() <= this->get_exec_grade())
 	{
 		throw AForm::GradeTooLowException();
 	}
