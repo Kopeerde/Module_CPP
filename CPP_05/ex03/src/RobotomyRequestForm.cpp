@@ -11,6 +11,15 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << this->get_name() + " : Default class destructor RobotomyRequestForm called." << std::endl;
 }
 
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &original) : AForm(original)
+{}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const &other)
+{
+	(void) other;
+	return *this;
+}
+
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	std::cout << "*Drilling noises*" << std::endl;

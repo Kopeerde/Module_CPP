@@ -4,12 +4,21 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string name) : AForm(name, 145, 137)
 {
-	std::cout << "Default class ShruberryCreationForm constructor called." << std::endl;
+	std::cout << this->get_name() << " : Default class ShruberryCreationForm constructor called." << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "Default class destructor ShrubberyCreationForm destructor called." << std::endl;
+	std::cout << this->get_name() << " : Default class destructor ShrubberyCreationForm destructor called." << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &original) : AForm(original)
+{}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)
+{
+	(void) other;
+	return *this;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
@@ -18,7 +27,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	{
 		throw AForm::NotSignedException();
 	}
-	else if (executor.getGrade() <= this->get_exec_grade())
+	else if (executor.getGrade() > this->get_exec_grade())
 	{
 		throw AForm::GradeTooLowException();
 	}

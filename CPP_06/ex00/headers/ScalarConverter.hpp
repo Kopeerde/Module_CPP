@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
@@ -13,7 +10,10 @@
 class ScalarConverter
 {
 	private:
-
+		static char c;
+		static int i;
+		static float f;
+		static double d;
 
 	public:
 		ScalarConverter();
@@ -21,7 +21,7 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter &original);
 		ScalarConverter& operator=(const ScalarConverter&);
 
-		void convert(std::string str);
+		static void convert(std::string str);
 
 };
 

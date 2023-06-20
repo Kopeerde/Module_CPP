@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #ifndef B_HPP
 #define B_HPP

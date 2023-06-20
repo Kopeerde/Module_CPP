@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #include "../headers/ScalarConverter.hpp"
 
@@ -30,18 +27,55 @@ void ScalarConverter::convert(std::string str)
 	double parsed;
 	char * end_ptr;
 
-	if (str.compare("nan") == 0)
+	if (str.compare("nan") == 0 || str.compare("nanf") == 0)
 	{
 		parsed = std::numeric_limits<double>::quiet_NaN();
 		std::cout << "char: " << "impossible" << std::endl;
 		std::cout << "int: " << "impossible" << std::endl;
 		std::cout << "float: " << (float) parsed << "f" << std::endl;
 		std::cout << "double: " << parsed << std::endl;
+	
+		ScalarConverter::d = std::numeric_limits<double>::quiet_NaN();
+		ScalarConverter::f = std::numeric_limits<float>::quiet_NaN();
+	}
+	else if (str.compare("-inff") == 0)
+	{
+
+	}
+	else if (str.compare("+inff") == 0)
+	{
+
+	}
+//	else if (str.compare("nanf") == 0)
+//	{
+//
+//	}
+	else if (str.compare("-inf") == 0)
+	{
+		parsed = std::numeric_limits<double>::infinity() * -1;
+		std::cout << "char: " << "impossible" << std::endl;
+		std::cout << "int: " << "impossible" << std::endl;
+		std::cout << "float: " << (float) parsed << "f" << std::endl;
+		std::cout << "double: " << parsed << std::endl;
+	
+		ScalarConverter::d = std::numeric_limits<double>::infinity() * -1;
+		ScalarConverter::f = std::numeric_limits<float>::infinity() * -1;
+	}
+	else if (str.compare("+inf") == 0)
+	{
+		parsed = std::numeric_limits<double>::infinity();
+		std::cout << "char: " << "impossible" << std::endl;
+		std::cout << "int: " << "impossible" << std::endl;
+		std::cout << "float: " << (float) parsed << "f" << std::endl;
+		std::cout << "double: " << parsed << std::endl;
+	
+		ScalarConverter::d = std::numeric_limits<double>::infinity();
+		ScalarConverter::f = std::numeric_limits<float>::infinity();
 	}
 	else
 	{
 		if (str.length() == 1 && isalpha(*str.c_str()))
-			parsed = (int) *str.c_str();
+			parsed = (char) *str.c_str();
 		else
 			parsed = std::strtod(str.c_str(), &end_ptr);
 

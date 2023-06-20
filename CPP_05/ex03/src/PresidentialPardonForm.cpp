@@ -11,6 +11,15 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << this->get_name() + " : Default class destructor PresidentialPardonForm called." << std::endl;
 }
 
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &original) : AForm(original)
+{}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm const &other)
+{
+	(void) other;
+	return *this;
+}
+
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (this->get_is_signed() == false)

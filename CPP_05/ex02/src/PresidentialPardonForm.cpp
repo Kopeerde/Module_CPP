@@ -21,12 +21,11 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		std::cout << this->get_name() + " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &original) : Form(original)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &original) : AForm(original)
 {}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
-	if (this == other)
-		return *this;
+	(void) other;
 	return *this;
 }

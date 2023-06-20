@@ -33,10 +33,9 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &original) : AForm(original)
 {}
 
-RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
-	if (*this = other)
-		return *this;
+	(void) other;
 	return *this;
 }
 

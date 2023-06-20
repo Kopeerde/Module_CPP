@@ -12,6 +12,15 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "Default class destructor ShrubberyCreationForm destructor called." << std::endl;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &original) : AForm(original)
+{}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)
+{
+	(void) other;
+	return *this;
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (this->get_is_signed() == false)

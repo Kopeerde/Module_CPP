@@ -1,6 +1,3 @@
-//
-// Created by kmendes- on 2/21/23.
-//
 
 #ifndef BASE_HPP
 #define BASE_HPP
