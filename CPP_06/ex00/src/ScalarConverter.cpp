@@ -27,7 +27,7 @@ void ScalarConverter::convert(std::string str)
 	double parsed;
 	char * end_ptr;
 
-	if (str.compare("nan") == 0 || str.compare("nanf") == 0)
+	if (str.compare("nan") == 0)
 	{
 		parsed = std::numeric_limits<double>::quiet_NaN();
 		std::cout << "char: " << "impossible" << std::endl;
@@ -46,10 +46,10 @@ void ScalarConverter::convert(std::string str)
 	{
 
 	}
-//	else if (str.compare("nanf") == 0)
-//	{
-//
-//	}
+	else if (str.compare("nanf") == 0)
+	{
+
+	}
 	else if (str.compare("-inf") == 0)
 	{
 		parsed = std::numeric_limits<double>::infinity() * -1;

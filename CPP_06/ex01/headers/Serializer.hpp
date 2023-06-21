@@ -3,6 +3,12 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
+#include <stdint.h>
+
+struct Data
+{
+	int i;
+};
 
 class Serializer
 {
@@ -16,9 +22,9 @@ class Serializer
 
 		Serializer& operator=(const Serializer&);
 
-		uintptr_t serialize(Data* ptr);
+		static uintptr_t serialize(Data* ptr);
 
-		Data* deserialize(uintptr_t raw);
+		static Data* deserialize(uintptr_t raw);
 
 };
 
