@@ -3,6 +3,11 @@
 #define BASE_HPP
 
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+
+
 
 class Base
 {
