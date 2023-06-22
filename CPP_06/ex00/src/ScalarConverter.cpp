@@ -1,6 +1,11 @@
 
 #include "../headers/ScalarConverter.hpp"
 
+double ScalarConverter::d = 0;
+float ScalarConverter::f = 0;
+char ScalarConverter::c = 0;
+int ScalarConverter::i = 0;
+
 ScalarConverter::ScalarConverter()
 {
 	std::cout << "Base class constructor ScalarConverter called." << std::endl;
@@ -74,7 +79,7 @@ void ScalarConverter::convert(std::string str)
 	}
 	else
 	{
-		if (str.length() == 1 && isalpha(*str.c_str()))
+		if (str.length() == 1 && (isdigit(*str.c_str()) == 0))
 			parsed = (char) *str.c_str();
 		else
 			parsed = std::strtod(str.c_str(), &end_ptr);
