@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <limits>
+#include <limits.h>
+#include <float.h>
 #include <iomanip>
 #include <regex.h>
 
