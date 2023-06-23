@@ -81,23 +81,33 @@ void ScalarConverter::convert(std::string str)
 		}
 
 		if (str.length() == 1 && (isdigit(*str.c_str()) == 0))
+		{
 			parsed = (char) *str.c_str();
+			ScalarConverter::c = (char) parsed;
+		}
 		else
 			parsed = std::strtod(str.c_str(), &end_ptr);
 
 		if (isprint((char) parsed))
 			std::cout << "char: " << (char) parsed << std::endl;
-		else
+		else if (0 <= parsed && parsed <= 127)
 			std::cout << "char: " << "Non displayable" << std::endl;
-		if (parsed < INT_MAX)
-			std::cout << "int: " << (int) parsed << std::endl;
+		else
+			std::cout << "char: impossible" << std::endl;
+
+		ScalarConverter::i = (int) parsed;
+		ScalarConverter::f = (float) parsed;
+		ScalarConverter::d = parsed;
+
+		if (parsed < std::numeric_limits<int>::max())
+			std::cout << "int: " << ScalarConverter::i << std::endl;
 		else
 			std::cout << "int: impossible" << std::endl;
 		if (parsed < FLT_MAX)
-			std::cout << "float: " << std::fixed << std::setprecision(1) << (float) parsed << "f" << std::endl;
+			std::cout << "float: " << std::fixed << std::setprecision(1) << ScalarConverter::f << "f" << std::endl;
 		else
 			std::cout << "float: impossible" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << parsed << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << ScalarConverter::d << std::endl;
 	}
 
 }
