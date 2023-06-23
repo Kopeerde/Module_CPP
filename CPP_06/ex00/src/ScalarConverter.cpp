@@ -79,6 +79,20 @@ void ScalarConverter::convert(std::string str)
 	}
 	else
 	{
+		regex_t comp_regex;
+		int regex_init = REG_ECTYPE;
+		if ((regex_init = regcomp(&comp_regex, "(^[+-]?[0-9]*\\.[0-9]+f?$)|(^[	-~]$)|(^[+-]?[0-9]+$)", REG_EXTENDED | REG_ICASE)))
+		{
+			std::cout << "Could not compile regex. code : " << regex_init << std::endl;
+			return ;
+		}
+
+		if (regexec(&comp_regex, str.c_str(), 0, NULL, 0) != 0)
+		{
+			std::cout << "regex does not matched." << std::endl;
+			return ;
+		}
+
 		if (str.length() == 1 && (isdigit(*str.c_str()) == 0))
 			parsed = (char) *str.c_str();
 		else

@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <limits>
 #include <iomanip>
+#include <regex.h>
 
 class ScalarConverter
 {
