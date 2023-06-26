@@ -1,9 +1,5 @@
-//
-// Created by kmendes- on 2/23/23.
-//
 
 #include <iostream>
-
 #include "../headers/whatever.hpp"
 
 int main()

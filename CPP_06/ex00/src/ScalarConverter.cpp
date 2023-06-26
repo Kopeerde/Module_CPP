@@ -92,13 +92,13 @@ void ScalarConverter::convert(std::string str)
 			std::cout << "char: impossible" << std::endl;
 
 		// Printing as int
-		if (parsed < std::numeric_limits<int>::max())
+		if (std::numeric_limits<int>::min() < parsed && parsed < std::numeric_limits<int>::max())
 			std::cout << "int: " << (int) parsed << std::endl;
 		else
 			std::cout << "int: impossible" << std::endl;
 		
 		// Printing as float
-		if (parsed < FLT_MAX)
+		if (FLT_MIN < parsed && parsed < FLT_MAX)
 			std::cout << "float: " << std::fixed << std::setprecision(1) << (float) parsed << "f" << std::endl;
 		else
 			std::cout << "float: impossible" << std::endl;
