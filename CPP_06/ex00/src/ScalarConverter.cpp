@@ -1,11 +1,6 @@
 
 #include "../headers/ScalarConverter.hpp"
 
-double ScalarConverter::d = 0;
-float ScalarConverter::f = 0;
-char ScalarConverter::c = 0;
-int ScalarConverter::i = 0;
-
 ScalarConverter::ScalarConverter()
 {
 	std::cout << "Base class constructor ScalarConverter called." << std::endl;
@@ -36,58 +31,59 @@ void ScalarConverter::convert(std::string str)
 		parsed = std::numeric_limits<double>::quiet_NaN();
 		std::cout << "char: " << "impossible" << std::endl;
 		std::cout << "int: " << "impossible" << std::endl;
-		std::cout << "float: " << (float) parsed << "f" << std::endl;
-		std::cout << "double: " << parsed << std::endl;
-	
-		ScalarConverter::d = std::numeric_limits<double>::quiet_NaN();
-		ScalarConverter::f = std::numeric_limits<float>::quiet_NaN();
+		std::cout << "float: " << std::numeric_limits<float>::quiet_NaN() << "f" << std::endl;
+		std::cout << "double: " << std::numeric_limits<double>::quiet_NaN() << std::endl;
 	}
 	else if (str.compare("-inf") == 0 || str.compare("-inff") == 0)
 	{
 		parsed = std::numeric_limits<double>::infinity() * -1;
 		std::cout << "char: " << "impossible" << std::endl;
 		std::cout << "int: " << "impossible" << std::endl;
-		std::cout << "float: " << (float) parsed << "f" << std::endl;
-		std::cout << "double: " << parsed << std::endl;
-	
-		ScalarConverter::d = std::numeric_limits<double>::infinity() * -1;
-		ScalarConverter::f = std::numeric_limits<float>::infinity() * -1;
+		std::cout << "float: " << std::numeric_limits<float>::infinity() * -1 << "f" << std::endl;
+		std::cout << "double: " << std::numeric_limits<double>::infinity() * -1 << std::endl;
 	}
-	else if (str.compare("+inf") == 0 || str.compare("+inff") == 0)
+	else if (str.compare("+inf") == 0)
 	{
 		parsed = std::numeric_limits<double>::infinity();
 		std::cout << "char: " << "impossible" << std::endl;
 		std::cout << "int: " << "impossible" << std::endl;
-		std::cout << "float: " << (float) parsed << "f" << std::endl;
-		std::cout << "double: " << parsed << std::endl;
-	
-		ScalarConverter::d = std::numeric_limits<double>::infinity();
-		ScalarConverter::f = std::numeric_limits<float>::infinity();
+		std::cout << "float: " << std::numeric_limits<float>::infinity() << "f" << std::endl;
+		std::cout << "double: " << std::numeric_limits<double>::infinity() << std::endl;
+	}
+	else if (str.compare("+inff") == 0)
+	{
+		parsed = std::numeric_limits<double>::infinity();
+		std::cout << "char: " << "impossible" << std::endl;
+		std::cout << "int: " << "impossible" << std::endl;
+		std::cout << "float: " << std::numeric_limits<float>::infinity() << "f" << std::endl;
+		std::cout << "double: " << (double) std::numeric_limits<float>::infinity() << std::endl;
 	}
 	else
 	{
 		regex_t comp_regex;
 		int regex_init;
+		// Compile regex
 		if ((regex_init = regcomp(&comp_regex, "(^[+-]?[0-9]*\\.[0-9]+f?$)|(^[	-~]$)|(^[+-]?[0-9]+$)", REG_EXTENDED | REG_ICASE)))
 		{
 			std::cout << "Could not compile regex. error code : " << regex_init << std::endl;
 			return ;
 		}
-
+		// Check if user input is valid
 		if (regexec(&comp_regex, str.c_str(), 0, NULL, 0) != 0)
 		{
 			std::cout << "regex did not matched." << std::endl;
+			regfree(&comp_regex);
 			return ;
 		}
-
+		regfree(&comp_regex);
+		
+		// Parsing from string to char or double
 		if (str.length() == 1 && (isdigit(*str.c_str()) == 0))
-		{
 			parsed = (char) *str.c_str();
-			ScalarConverter::c = (char) parsed;
-		}
 		else
 			parsed = std::strtod(str.c_str(), &end_ptr);
 
+		// Printing as char
 		if (isprint((char) parsed))
 			std::cout << "char: " << (char) parsed << std::endl;
 		else if (0 <= parsed && parsed <= 127)
@@ -95,19 +91,20 @@ void ScalarConverter::convert(std::string str)
 		else
 			std::cout << "char: impossible" << std::endl;
 
-		ScalarConverter::i = (int) parsed;
-		ScalarConverter::f = (float) parsed;
-		ScalarConverter::d = parsed;
-
+		// Printing as int
 		if (parsed < std::numeric_limits<int>::max())
-			std::cout << "int: " << ScalarConverter::i << std::endl;
+			std::cout << "int: " << (int) parsed << std::endl;
 		else
 			std::cout << "int: impossible" << std::endl;
+		
+		// Printing as float
 		if (parsed < FLT_MAX)
-			std::cout << "float: " << std::fixed << std::setprecision(1) << ScalarConverter::f << "f" << std::endl;
+			std::cout << "float: " << std::fixed << std::setprecision(1) << (float) parsed << "f" << std::endl;
 		else
 			std::cout << "float: impossible" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << ScalarConverter::d << std::endl;
+		
+		// Printing as double, no need to parsed because already as double.
+		std::cout << "double: " << std::fixed << std::setprecision(1) << parsed << std::endl;
 	}
 
 }
