@@ -26,18 +26,61 @@ class Array
 
 };
 
+
+/******************************
+*********CONSTRUCTEURS*********
+******************************/
+
+
+template<class T>
+Array<T>::Array()
+{
+	this->len = 0;
+	this->values = new T[0];
+}
+
+template<class T>
+Array<T>::Array(const unsigned int n)
+{
+	this->len = n;
+	this->values = new T[n];
+	for (unsigned int i = 0; i < n; i++)
+		this->values[i] = 0;
+}
+
+template<class T>
+Array<T>::Array(const Array &original)
+{
+	this->len = original.size();
+	this->values = new T[this->len]();
+	for (unsigned int i = 0; i < this->len; i++)
+		this->values[i] = original.values[i];
+}
+
+
+/*******************************
+**********DESTRUCTEURS**********
+*******************************/
+
+
+template<class T>
+Array<T>::~Array()
+{
+	delete [] this->values;
+}
+
+
+/*******************************
+***********SURCHARGES***********
+*******************************/
+
+
 template<class T>
 T &Array<T>::operator[](const unsigned int index)
 {
 	if (index >= this->len)
 		throw std::out_of_range("Out of range exception.");
 	return this->values[index];
-}
-
-template<class T>
-int Array<T>::size() const
-{
-	return this->len;
 }
 
 template<class T>
@@ -58,35 +101,17 @@ Array<T>& Array<T>::operator=(const Array &other)
 	}
 }
 
-template<class T>
-Array<T>::Array(const Array &original)
-{
-	this->len = original.size();
-	this->values = new T[this->len]();
-	for (unsigned int i = 0; i < this->len; i++)
-		this->values[i] = original.values[i];
-}
+
+/**************************************
+***********FONCTIONS MEMBRES***********
+**************************************/
+
 
 template<class T>
-Array<T>::Array()
+int Array<T>::size() const
 {
-	this->len = 0;
-	this->values = new T[0];
+	return this->len;
 }
 
-template<class T>
-Array<T>::Array(const unsigned int n)
-{
-	this->len = n;
-	this->values = new T[n];
-	for (unsigned int i = 0; i < n; i++)
-		this->values[i] = 0;
-}
-
-template<class T>
-Array<T>::~Array()
-{
-	delete [] this->values;
-}
 
 #endif //ARRAY_HPP
