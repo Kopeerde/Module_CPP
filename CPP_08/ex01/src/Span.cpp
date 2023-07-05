@@ -12,6 +12,21 @@ Span::Span(size_t max_size)
 	this->vec = std::vector<int>();
 }
 
+Span::Span(const Span &original)
+{
+	this->max_size = original.max_size;
+	this->vec = original.vec;
+}
+
+Span& Span::operator=(const Span &other)
+{
+	if (this == &other)
+		return *this;
+
+	this->max_size = other.max_size;
+	this->vec = other.vec;
+	return *this;
+}
 
 Span::~Span()
 {
@@ -21,7 +36,7 @@ Span::~Span()
 // TODO : Surcharge opérateur = et constructeur par copie
 
 
-unsigned int Span::shortestSpan()
+int Span::shortestSpan()
 {
 	if (this->vec.size() == 0 || this->vec.size() == 1)
 		throw std::length_error("Current array is empty.");
