@@ -21,9 +21,14 @@ Span::~Span()
 // TODO : Surcharge opérateur = et constructeur par copie
 
 
-int Span::shortestSpan()
+unsigned int Span::shortestSpan()
 {
-	int res = this->vec[1] - this->vec[0];
+	if (this->vec.size() == 0 || this->vec.size() == 1)
+		throw std::length_error("Current array is empty.");
+	if (this->vec.size() == 1)
+		throw std::length_error("Current array contain only one element.");
+
+	unsigned int res = this->vec[1] - this->vec[0];
 
 	for (size_t i = 0; (i + 1) < this->vec.size(); i++)
 	{
@@ -34,8 +39,13 @@ int Span::shortestSpan()
 	return res;
 }
 
-int Span::longestSpan()
+unsigned int Span::longestSpan()
 {
+	if (this->vec.size() == 0 || this->vec.size() == 1)
+		throw std::length_error("Current array is empty.");
+	if (this->vec.size() == 1)
+		throw std::length_error("Current array contain only one element.");
+
 	return (this->vec.back() - this->vec.front());
 }
 
@@ -46,4 +56,12 @@ void Span::addNumber(int value)
 
 	this->vec.push_back(value);
 	std::sort(this->vec.begin(), this->vec.end());
+}
+
+void Span::addRange(std::vector<int>::const_iterator start, std::vector<int>::const_iterator end)
+{
+	for (std::vector<int>::iterator buffer; buffer != end; buffer++)
+	{
+		int index = std::distance(buffer, start);
+	}
 }

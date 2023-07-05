@@ -6,7 +6,7 @@
 NAME = span
 
 CPP = c++
-FLAG = -MMD -Wall -Werror -Wextra -std=c++98 -g3
+FLAG = -MMD -Wall -Werror -Wextra -pedantic-errors -std=c++98 -g3
 
 DIR_HEADERS = headers/
 SRC_PATH = src/
