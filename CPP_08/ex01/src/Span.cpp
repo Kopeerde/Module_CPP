@@ -33,10 +33,8 @@ Span::~Span()
 	std::cout << "Span object destructor called." << std::endl;
 }
 
-// TODO : Surcharge opérateur = et constructeur par copie
 
-
-int Span::shortestSpan()
+unsigned int Span::shortestSpan()
 {
 	if (this->vec.size() == 0 || this->vec.size() == 1)
 		throw std::length_error("Current array is empty.");
