@@ -12,14 +12,26 @@ Span::Span(size_t max_size)
 	this->vec = std::vector<int>();
 }
 
+Span::Span(const Span &original)
+{
+	this->max_size = original.max_size;
+	this->vec = original.vec;
+}
+
+Span& Span::operator=(const Span &other)
+{
+	if (this == &other)
+		return *this;
+
+	this->max_size = other.max_size;
+	this->vec = other.vec;
+	return *this;
+}
 
 Span::~Span()
 {
 	std::cout << "Span object destructor called." << std::endl;
 }
-
-// TODO : Surcharge opérateur = et constructeur par copie
-
 
 int Span::shortestSpan()
 {
