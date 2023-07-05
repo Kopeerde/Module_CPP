@@ -5,32 +5,29 @@
 #include <stack>
 #include <algorithm>
 
-template <class T>
+template <typename T>
 class MutantStack : public std::stack<T, std::deque<T> >
 {
 	private:
 
 	public:
-		MutantStack();
-		~MutantStack();
-		MutantStack(const MutantStack<T> &original);
-
-		MutantStack& operator=(const MutantStack<T> &);
-
-		Iterator begin()
+		typedef typename std::stack<T> iterator;
+		iterator begin();
+		iterator end();
 
 };
 
-template <typename T>
-typename MutantStack<T>::iterator MutantStack<T>::begin()
-{
-
-}
-
-template <typename T>
+template<typename T>
 typename MutantStack<T>::iterator MutantStack<T>::end()
 {
-
+	return this->begin();
 }
+
+template<typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin()
+{
+	return this->end();
+}
+
 
 #endif //MUTANTSTACK_HPP

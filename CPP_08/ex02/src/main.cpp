@@ -1,30 +1,31 @@
 
 #include <iostream>
+#include <list>
+
 
 #include "../headers/MutantStack.hpp"
 
-// TODO : Changer MutantStack pour une liste
-void main()
+void main_2()
 {
-	MutantStack<int> mstack;
+	std::list<int> mstack;
 
-	mstack.push(5);
-	mstack.push(17);
+	mstack.push_back(5);
+	mstack.push_back(17);
 
-	std::cout << mstack.top() << std::endl;
+	std::cout << mstack.front() << std::endl;
 
-	mstack.pop();
+	mstack.pop_back();
 
 	std::cout << mstack.size() << std::endl;
 
-	mstack.push(3);
-	mstack.push(5);
-	mstack.push(737);
+	mstack.push_back(3);
+	mstack.push_back(5);
+	mstack.push_back(737);
 //[...]
-	mstack.push(0);
+	mstack.push_back(0);
 
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
+	std::list<int>::iterator it = mstack.begin();
+	std::list<int>::iterator ite = mstack.end();
 
 	++it;
 	--it;
@@ -33,7 +34,6 @@ void main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
 }
 
 int main()
@@ -65,7 +65,8 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
+
+	main_2();
 
 	return 0;
 }
