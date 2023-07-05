@@ -45,7 +45,7 @@ unsigned int Span::shortestSpan()
 
 	for (size_t i = 0; (i + 1) < this->vec.size(); i++)
 	{
-		if ((this->vec[i + 1] - this->vec[i]) < res)
+		if ((unsigned int) (this->vec[i + 1] - this->vec[i]) < res)
 			res = this->vec[i + 1] - this->vec[i];
 	}
 
@@ -73,8 +73,12 @@ void Span::addNumber(int value)
 
 void Span::addRange(std::vector<int>::const_iterator start, std::vector<int>::const_iterator end)
 {
-	for (std::vector<int>::iterator buffer; buffer != end; buffer++)
-	{
-		int index = std::distance(buffer, start);
-	}
+	unsigned int temp = std::distance(start, end);
+	if (temp + this->vec.size() > this->max_size)
+		throw std::length_error("The length would be greater than the max size.");
+
+	std::copy(start, end, std::back_inserter(this->vec));
+//	std::copy(start, end, &(this->vec.back()));
+	std::sort(this->vec.begin(), this->vec.end());
+
 }
