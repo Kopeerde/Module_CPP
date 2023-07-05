@@ -12,11 +12,11 @@ void main_2()
 	mstack.push_back(5);
 	mstack.push_back(17);
 
-	std::cout << mstack.front() << std::endl;
+	std::cout << "std::list top : " << mstack.back() << std::endl;
 
 	mstack.pop_back();
 
-	std::cout << mstack.size() << std::endl;
+	std::cout << "std::list size : " << mstack.size() << std::endl;
 
 	mstack.push_back(3);
 	mstack.push_back(5);
@@ -43,11 +43,11 @@ int main()
 	mstack.push(5);
 	mstack.push(17);
 
-	std::cout << mstack.top() << std::endl;
+	std::cout << "MustantStack top : " << mstack.top() << std::endl;
 
 	mstack.pop();
 
-	std::cout << mstack.size() << std::endl;
+	std::cout << "MustantStack size : " << mstack.size() << std::endl;
 
 	mstack.push(3);
 	mstack.push(5);
@@ -66,6 +66,7 @@ int main()
 		++it;
 	}
 
+	std::cout << std::endl;
 	main_2();
 
 	return 0;
