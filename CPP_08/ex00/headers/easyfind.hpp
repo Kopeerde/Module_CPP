@@ -9,7 +9,7 @@
 class not_found: std::exception
 {
 	public:
-		virtual const char* what() const throw();
+		virtual const char* what() const throw();// { return "Target value has not been found inside container."; };
 };
 
 template <typename T>

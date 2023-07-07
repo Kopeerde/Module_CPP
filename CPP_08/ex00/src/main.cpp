@@ -2,6 +2,11 @@
 #include "../headers/easyfind.hpp"
 #include <vector>
 
+const char *not_found::what() const throw()
+{
+	return "Target value has not been found inside container.";
+}
+
 int main()
 {
 	std::vector<int> vec(10, 0);
