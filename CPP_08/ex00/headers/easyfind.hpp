@@ -6,14 +6,23 @@
 #include <iostream>
 #include <vector>
 
-template <class T>
-void easyfind(T& a, int b)
+class not_found: std::exception
 {
-	std::vector<int>::iterator res = std::find(a.begin(), a.end(), b);
+	public:
+		virtual const char* what() const throw();
+};
+
+template <typename T>
+typename T::iterator easyfind(T& a, int b)
+{
+	typename T::iterator res = std::find(a.begin(), a.end(), b);
 	if (res != a.end())
+	{
 		std::cout << "Element found at index : " << std::distance(a.begin(), res) << std::endl;
+		return res;
+	}
 	else
-		std::cout << "Element was not found in container." << std::endl;
+		throw not_found();
 }
 
 #endif //EASYFIND_HPP
