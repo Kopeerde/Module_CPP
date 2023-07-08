@@ -6,11 +6,11 @@
 NAME = btc
 
 CPP = c++
-FLAG = -MMD -Wall -Werror -Wextra -std=c++98 -g3
+FLAG = -MMD -Wall -Werror -Wextra -g3 -std=c++98
 
 DIR_HEADERS = headers/
 SRC_PATH = src/
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 OBJ_PATH	=	obj/
 OBJ		=	$(SRC:.cpp=.o)
 OBJS	=	$(addprefix $(OBJ_PATH), $(OBJ))
