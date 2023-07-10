@@ -10,7 +10,7 @@ FLAG = -MMD -Wall -Werror -Wextra -g3 -std=c++98
 
 DIR_HEADERS = headers/
 SRC_PATH = src/
-SRC = main.cpp BitcoinExchange.cpp
+SRC = main.cpp BitcoinExchange.cpp utils.cpp
 OBJ_PATH	=	obj/
 OBJ		=	$(SRC:.cpp=.o)
 OBJS	=	$(addprefix $(OBJ_PATH), $(OBJ))

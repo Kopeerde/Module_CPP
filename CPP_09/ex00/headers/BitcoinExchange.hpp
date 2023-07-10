@@ -5,7 +5,12 @@
 
 #include <map>
 #include <string>
+#include <algorithm>
 #include <stdlib.h>
+#include <iostream>
+#include <sstream>
+
+#include "./utils.hpp"
 
 class BitcoinExchange
 {
@@ -19,6 +24,7 @@ class BitcoinExchange
 	BitcoinExchange& operator=(BitcoinExchange const &);
 
 	void add_entry(std::string key, std::string value);
+	double get_value(std::string date);
 
 };
 
