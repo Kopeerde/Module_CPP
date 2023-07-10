@@ -10,7 +10,7 @@ FLAG = -MMD -Wall -Werror -Wextra -std=c++98 -g3
 
 DIR_HEADERS = headers/
 SRC_PATH = src/
-SRC = main.cpp
+SRC = main.cpp RPN.cpp
 OBJ_PATH	=	obj/
 OBJ		=	$(SRC:.cpp=.o)
 OBJS	=	$(addprefix $(OBJ_PATH), $(OBJ))
