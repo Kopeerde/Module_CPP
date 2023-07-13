@@ -105,7 +105,7 @@ int main(int argc, char **argv)
 			std::istringstream(&(user_input_date[8])) >> day;
 			if (!isValidDate(day, month, year))
 			{
-				std::cout << "Please, enter a valid date." << std::cout;
+				std::cout << "Please, enter a valid date." << std::endl;
 				continue;
 			}
 			std::cout << "Enter the number of bitcoins :\n" << std::flush;
